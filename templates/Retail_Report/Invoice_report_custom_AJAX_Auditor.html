@@ -1,0 +1,62 @@
+										<h3 class="header smaller lighter blue">Monthly Report for {{start_date }}</h3>
+										
+										<div class="header no-print center">
+											<button type="button" class="btn btn-app btn-light btn-xs" onclick="location.href='/Mahe/Print_Report_Audit/{{start_date_object|date:"F"}}/{{start_date_object|date:"Y"}}'" id="print_button">
+											<i class="ace-icon fa fa-print bigger-160"></i>
+											Print
+											</button>
+											
+
+										<div class="clearfix">
+											<div class="pull-right tableTools-container"></div>
+										</div>
+										<div class="table-header">
+
+										</div>
+											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+												
+												<thead>
+													<tr>
+												 
+												 	 	 <th>Transaction Date  </th>
+												 	 	 <th>TIL Card </th>
+												 	 	 <th>TIL Cash </th>
+												 	 	 <th>Total Sale </th>
+
+  													</tr>
+												
+												</thead>
+
+												<tbody>
+
+											{%for invoice in my_invoices_qs %}
+											<tr>
+								
+												<td>{{ invoice.Collection_Date  | date:"d M Y"}}</td>
+												<td>{{ invoice.TIL1_Card }}</td>
+												<td>{{ invoice.TIL1_Cash }}</td>
+												<td>{{ invoice.TIL1_Total }}</td>
+												
+											
+											</tr>
+											{%endfor%}
+
+												</tbody>
+											
+											<tfoot>
+											
+											<tr>
+								
+													<th> Monthly Grand Total </th>
+													<th>{{ Sum_Dict.TIL1_Card }}</th>
+													<th>{{ Sum_Dict.TIL1_Cash }}</th>
+													<th>{{ Sum_Dict.TIL1_Total }}</th>
+												
+												
+											
+											</tr>
+											
+											</tfoot>	
+												
+											</table>
+

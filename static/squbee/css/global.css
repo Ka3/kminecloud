@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+<head> <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+
+<style>
+
+#stylebar_wrapper {
+    background: none repeat scroll 0 0 #323638;
+    border-bottom: 1px solid #000000;
+    position: relative;
+    width: 100%;
+    z-index: 1000000;
+}
+
+#stylebar_header_wrapper {
+    background: url(http://www.cpasitesolutions.com/includes/2011site/images/bkg.png) repeat-x scroll 0 -320px #FFFFFF;
+    height: 55px;
+}
+
+
+
+#stylebar_header {
+    margin: 0 auto;
+    min-width: 960px;
+    position: relative;
+    width: 94%;
+}
+
+
+#stylebar_header {
+    margin: 0 auto;
+    min-width: 960px;
+    position: relative;
+    width: 94%;
+}
+
+#stylebar_logo {
+    background: url(http://www.cpasitesolutions.com/includes/2011site/images/cpass-sprite.png) no-repeat scroll 0 -400px transparent;
+    display: block;
+    height: 55px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 450px;
+}
+
+
+.demo_save {
+    background: url(http://www.cpasitesolutions.com/personalize/images/demo_start_btn.png) repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: 'Ubuntu',sans-serif;
+    font-weight: bold;
+    height: 36px;
+    line-height: 34px;
+    margin-left: 20px;
+    margin-top: 12px;
+    outline: medium none;
+    text-align: center;
+    text-decoration: none;
+    width: 140px;
+}
+
+
+.floatRight {
+    float: right;
+}
+.floatRight {
+    float: right;
+}
+#stylebar_wrapper a {
+    color: #88AA00;
+    text-decoration: underline;
+    transition: color 0.5s ease 0s;
+}
+
+#stylebar_phone {
+    background: url(http://www.cpasitesolutions.com/includes/2011site/images/sprite.png) no-repeat scroll -607px -564px transparent;
+    color: #A0A0A0;
+    display: block;
+    font-size: 18px;
+    height: 55px;
+    line-height: 54px;
+    padding-left: 25px;
+    right: 0;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #000000;
+    top: 0;
+}
+
+
+
+</style>
+
+
+<div id="stylebar_wrapper">
+	<div id="stylebar_header_wrapper">
+		<div id="stylebar_header">
+			<a href="http://www.cpasitesolutions.com/cpa-website-design/styles.php" id="stylebar_logo">
+			</a>
+		
+     		  <a class="demo_save floatRight" onClick="window.location='http://www.cpasitesolutions.com/getstarted.php';"></a>
+	<div class="floatRight" id="stylebar_phone">
+				800-896-4500
+			</div>
+
+   			   <div style="clear:both;"></div>
+		</div>
+	</div>
+</div>
+</head>
+</html>
+
+<body bgcolor="#A9C6F6">&nbsp;</body>
+

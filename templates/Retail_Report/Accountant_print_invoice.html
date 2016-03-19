@@ -1,0 +1,92 @@
+{% extends "base/__base.html" %}
+
+
+{% block Page_Title %}
+Invoice
+{% endblock %}
+
+{% block Title %}
+Invoice 
+{% endblock %}
+
+
+{% block Java_Scripts %} 
+
+
+	<link rel='stylesheet' href='/static/css/style.css'>
+	<link rel='stylesheet' href='/static/css/print.css' media="print">
+	
+
+
+{% endblock %}
+
+{% block Content %}
+
+<div class="header no-print center">
+										<button type="button" class="btn btn-app btn-light btn-xs" onClick='document.title = "{{Org_details_query.org_name}}_Sales_Invoice_{{invoice_detail.Invoice_Number}}"; window.print();'>
+											<i class="ace-icon fa fa-print bigger-160"></i>
+											Print
+										</button>
+
+
+</div>
+
+	<div id="page-wrap">
+		
+		
+		<p id="header" >Monthly Report</p>
+		<br>
+
+		
+		<div class="row">
+		
+		<div class ="col-lg-6 col-xl-6 col-md-6 col-sm-6" ></div>
+		<div class ="col-lg-6 col-xl-6 col-md-6 col-sm-6" >
+		    <table id="meta">
+                <tr>
+                    <td class="meta-head">Month and Year</td>
+                    <td><strong>{{ Month | date:"F Y" }} </strong></td>
+                </tr>
+            </table>
+		</div>	
+		</div>
+		<div style="clear:both"></div>
+		
+		<br>
+		
+		<div class="row">
+		
+		<table class="table table-striped table-bordered ">
+		<thead>
+		<th bgcolor="#C0C0C0"> <strong>Collection_Date</strong> </th>
+		<th bgcolor="#C0C0C0"> <strong>TIL1_Total</strong> </th>
+		<th bgcolor="#C0C0C0"> <strong>TIL1_Card</strong> </th>
+		<th bgcolor="#C0C0C0"> <strong>TIL1_Cash</strong> </th>
+		<th bgcolor="#C0C0C0"> <strong>TIL2_Total</strong> </th>
+		</thead>
+		
+		
+		<tbody>
+				{%for invoice in my_invoices_qs %}
+				<tr>
+
+					<td>{{ invoice.Collection_Date | date:"d M Y" }}</td>
+					<td>{{ invoice.TIL1_Total }}</td>
+					<td>{{ invoice.TIL1_Card }}</td>
+					<td>{{ invoice.TIL1_Cash }}</td>
+					<td>{{ invoice.TIL2_Total }}</td>
+
+				</tr>
+				{%endfor%}
+			</tbody>
+		</table>
+		
+	</div>
+	
+
+
+		
+ 
+
+
+{% endblock %}

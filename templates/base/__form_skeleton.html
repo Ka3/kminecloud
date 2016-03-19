@@ -1,0 +1,74 @@
+
+{% extends "base/__base.html" %}
+
+{% block Java_Scripts %} 
+{% endblock %}
+
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+{% block style %}
+<!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+<style>
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+</style>
+
+{% endblock %}
+
+
+   
+{% block Content %}
+
+<br>
+{% block ColType %}
+
+
+<div class="row">
+	<div class="col-sm-11 col-lg-6 col-md-11 col-xs-11 ">
+		{% endblock %}
+
+		<div class="widget-box">
+			<div class="widget-header">
+
+
+
+				<h4 class="widget-title">{% block Page_Title %}New Company
+					Registration{% endblock %}</h4>
+
+
+			</div>
+
+			<div class="widget-body">
+				<div class="widget-main">{% block Form %} {% endblock %}</div>
+
+
+
+			</div>
+		</div>
+
+	<div class="col-sm-11 col-lg-5 col-md-11 col-xs-11">
+		<div class="widget-box">{% block Shortcut %} Test {% endblock %}
+		</div>
+	</div>
+
+</div>
+
+	</div>
+
+
+
+
+
+
+
+{% endblock %}

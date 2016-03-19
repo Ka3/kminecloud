@@ -1,0 +1,26 @@
+											<table id="modal-table" class="table table-striped table-bordered table-hover">
+
+												<thead>
+												<tr><td> Decscription </td> <td> Detail</td> </tr>
+												
+												</thead>
+												<tbody>
+
+													{%for invoice in Trans_Record %}
+												 	 	 <tr><td>Transaction Date</td> <td>{{ invoice.Collection_Date | date:"d M Y" }}</td> </tr>
+												 	 	 <tr><td>TIL1 Cash </td> <td> {{ invoice.TIL1_Cash}}</tr>
+												 	 	 <tr><td>TIL1 Card </td> <td> {{ invoice.TIL1_Card}}</tr>
+												 	 	 <tr><td>TIL1 Total</td> <td> {{ invoice.TIL1_Total}} </tr>
+												 	 	 <tr><td>TIL2 Sale </td> <td> {{ invoice.TIL2_Total }}</tr>
+												 	 	 <tr><td>Bank Deposit </td> <td> {{ invoice.Bank_Deposit }}</tr>
+  													{%endfor%}
+
+												</tbody>
+											</table>
+											
+											<div class="col-lg-4"></div>
+											{%for invoice in Trans_Record %}
+												<a id="delete_record" class="btn" href="/mahe/change/{{invoice.id}}"> Delete Record </a>
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											{%endfor%}
+											</div>
