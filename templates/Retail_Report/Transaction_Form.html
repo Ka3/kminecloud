@@ -93,8 +93,8 @@ $(document).ready(function(){
 							  	  $(this).removeData('bs.modal');
 							  	});	 
 
-			});	
-			
+});				    
+
 
 
 		
@@ -172,7 +172,7 @@ function  Update_TIL_Total() {
 					{{ form.errors }}
 					
 					
-					<form class="from-horizontal" name="Trasaction" action="/Mahe/update/" method="post" role="form"> {% csrf_token %} 
+					<form class="from-horizontal" name="Trasaction" action="/Retail_Report/update/" method="post" role="form"> {% csrf_token %} 
 					{{ form.Updated_User.as_hidden  }}
 					{{ form.Active_Flag.as_hidden  }}
 					<br>

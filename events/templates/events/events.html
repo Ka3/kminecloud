@@ -1,0 +1,225 @@
+{% extends "base/__form_skeleton.html" %}
+
+{% block Page_Title %}
+Kmine - Events
+{% endblock Page_Title %}
+
+{% block Title %}
+Kmine - Events
+{% endblock Title %}
+
+{% block Java_Scripts %} 
+
+<link rel='stylesheet' href='/static/assets/css/fullcalendar.css'>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="/static/assets/js/jquery-ui.custom.js"></script>
+<script src="/static/assets/js/date-time/moment.js"></script>
+<script src="/static/assets/js/fullcalendar.js"></script>
+
+<script>
+
+
+$(document).ready(function(){
+	var date = new Date();
+	var d = date.getDate();
+	var m = date.getMonth();
+	var y = date.getFullYear();
+
+	
+
+	var calendar = $('#calendar').fullCalendar({
+		//isRTL: true,
+													 buttonHtml: {
+														prev: '<i class="ace-icon fa fa-chevron-left"></i>',
+														next: '<i class="ace-icon fa fa-chevron-right"></i>'
+													},
+	
+													header: {
+														left: 'prev,next today',
+														center: 'title',
+
+													},
+													
+													// RENDER FROM DJANGO CALANDER
+													events:  '/events/get_events'
+													
+													// rendering ends
+											,
+												editable: true,
+												droppable: true, // this allows things to be dropped onto the calendar !!!
+												drop: function(date, allDay) { // this function is called when something is dropped
+		
+																				// retrieve the dropped element's stored Event Object
+																				var originalEventObject = $(this).data('eventObject');
+																				var $extraEventClass = $(this).attr('data-class');
+											
+											
+																				// we need to copy it, so that multiple events don't have a reference to the same object
+																				var copiedEventObject = $.extend({}, originalEventObject);
+											
+																				// assign it the date that was reported
+																				copiedEventObject.start = date;
+																				copiedEventObject.allDay = allDay;
+																				if($extraEventClass) copiedEventObject['className'] = [$extraEventClass];
+																				
+																				// render the event on the calendar
+																				// the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+																				$('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+																				
+																				// is the "remove after drop" checkbox checked?
+																				if ($('#drop-remove').is(':checked')) {
+																					// if so, remove the element from the "Draggable Events" list
+																					$(this).remove();
+																				}
+												
+																			}
+																,	
+																selectable: true,
+																selectHelper: true,
+																select: function(start, end, allDay) {
+																	
+																	bootbox.prompt("New Event Title:", function(title) {
+																		if (title !== null) {
+																			calendar.fullCalendar('renderEvent',
+																				{
+																					title: title,
+																					start: start,
+																					end: end,
+																					allDay: allDay,
+																					className: 'label-info'
+																				},
+																				true // make the event "stick"
+																			);
+																		}
+																	});
+			
+
+																calendar.fullCalendar('unselect');
+														},	
+																
+																
+												// second block for modal rendering
+												
+														eventClick: function(calEvent, jsEvent, view) {
+
+													//display a modal
+													var modal = 
+													'<div class="modal fade">\
+													  <div class="modal-dialog">\
+													   <div class="modal-content">\
+														 <div class="modal-body">\
+														   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
+														   <form class="no-margin">\
+															  <label>Change event name &nbsp;</label>\
+															  <input class="middle" autocomplete="off" type="text" value="' + calEvent.title + '" />\
+															 <button type="submit" class="btn btn-sm btn-success"><i class="ace-icon fa fa-check"></i> Save</button>\
+														   </form>\
+														 </div>\
+														 <div class="modal-footer">\
+															<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> Delete Event</button>\
+															<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cancel</button>\
+														 </div>\
+													  </div>\
+													 </div>\
+													</div>';
+												
+												
+													var modal = $(modal).appendTo('body');
+													modal.find('form').on('submit', function(ev){
+														ev.preventDefault();
+										
+														calEvent.title = $(this).find("input[type=text]").val();
+														calendar.fullCalendar('updateEvent', calEvent);
+														modal.modal("hide");
+													});
+													modal.find('button[data-action=delete]').on('click', function() {
+														calendar.fullCalendar('removeEvents' , function(ev){
+															return (ev._id == calEvent._id);
+														})
+														modal.modal("hide");
+													});
+													
+													modal.modal('show').on('hidden', function(){
+														modal.remove();
+													});
+
+	
+														}
+														
+	});
+
+
+})
+		
+</script>
+
+{% endblock Java_Scripts %}
+
+
+{% block Form %} 
+
+<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="space"></div>
+
+										<!-- #section:plugins/data-time.calendar -->
+										<div id="calendar"></div>
+
+										<!-- /section:plugins/data-time.calendar -->
+									</div>
+
+
+								</div>
+							</div>
+</div>
+								
+					
+<!-- Modals HTML -->
+								<div id="myModal" class="modal fade">
+								
+								
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-hidden="true">&times;</button>
+												<h4 class="modal-title">View Transaction</h4>
+											</div>
+											
+											<div class="modal-body">
+										
+											<div class="col-lg-4"></div>
+
+												<button type="button" class="btn btn-default"data-dismiss="modal">Close</button>
+											</div>
+											
+
+										</div>
+										<div class="modal-footer">
+
+
+											</div>
+										</div>
+									</div>
+ <!-- End of Modal  -->
+
+		
+
+{% endblock Form %}
+			
+					
+
+					
+					
+
+					
+{% block Shortcut %} 
+
+ {% endblock %}
+				
+
+
+					

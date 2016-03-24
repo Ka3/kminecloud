@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'kmine_auth',
     'Retail_Report',
-    'landing'
+    'landing',
+    'events'
 ]
 
 MIDDLEWARE_CLASSES = [

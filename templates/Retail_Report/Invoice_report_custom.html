@@ -41,7 +41,7 @@ $(document).ready(function(){
 		<script type="text/javascript">
 		
 function get_report(start_date, end_date) {
-    		       		    $.ajax('/Mahe/Custom_sales_report/', { 
+    		       		    $.ajax('/Retail_Report/Custom_sales_report/', { 
     					method: 'post',
     					dataType : "html",
    	 					data :  { startdate: start_date, enddate: end_date , csrfmiddlewaretoken: '{{ csrf_token }}'}, 
@@ -283,7 +283,7 @@ function get_report(start_date, end_date) {
     			}); // end new Ajax.Request
 
     
-       		 $.ajax('/Mahe/Monthly_Report/', { 
+       		 $.ajax('/Retail_Report/Monthly_Report/', { 
 					method: 'post',
 					dataType : "html",
 	 					data :  { startdate: start_date, csrfmiddlewaretoken: '{{ csrf_token }}'}, 

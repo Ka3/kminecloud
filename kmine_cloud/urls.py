@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^(?i)kmine_auth/', include('kmine_auth.urls')),
     url(r'^kmine_auth/', include('django.contrib.auth.urls')),
     url(r'^home/', include('landing.urls')),
+    url(r'^events/', include('events.urls')),
     
     
     
