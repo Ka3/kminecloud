@@ -10,22 +10,40 @@ Kmine - Events
 
 {% block Java_Scripts %} 
 
+<style>
+.required:after {
+	color: #e32;
+    content: " *"; 
+    padding-left:1%;
+}
+
+
+</style>
+
 <link rel='stylesheet' href='/static/assets/css/fullcalendar.css'>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="/static/assets/js/jquery-ui.custom.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="/static/assets/js/date-time/moment.js"></script>
 <script src="/static/assets/js/fullcalendar.js"></script>
+<script src="/static/assets/js/notify.js"></script>
+<script src="//oss.maxcdn.com/bootbox/4.2.0/bootbox.min.js"></script>
+
+
 
 <script>
 
 
 $(document).ready(function(){
+	
+
+
 	var date = new Date();
 	var d = date.getDate();
 	var m = date.getMonth();
 	var y = date.getFullYear();
 
-	
+	console.log('test')
 
 	var calendar = $('#calendar').fullCalendar({
 		//isRTL: true,
@@ -46,7 +64,6 @@ $(document).ready(function(){
 													// rendering ends
 											,
 												editable: true,
-												droppable: true, // this allows things to be dropped onto the calendar !!!
 												drop: function(date, allDay) { // this function is called when something is dropped
 		
 																				// retrieve the dropped element's stored Event Object
@@ -74,77 +91,236 @@ $(document).ready(function(){
 												
 																			}
 																,	
-																selectable: true,
-																selectHelper: true,
+											selectable: true,
+										    selectHelper: true,
+										    height: "auto",			
+																
 																select: function(start, end, allDay) {
 																	
-																	bootbox.prompt("New Event Title:", function(title) {
-																		if (title !== null) {
-																			calendar.fullCalendar('renderEvent',
-																				{
-																					title: title,
-																					start: start,
-																					end: end,
-																					allDay: allDay,
-																					className: 'label-info'
-																				},
-																				true // make the event "stick"
-																			);
-																		}
+
+																	bootbox.dialog({
+																	                title: "This is a form in a modal.",
+																	                message: 					'<div class="row">  ' +
+																					'<div class="col-md-12"> ' +
+																					'<form id="modal_form">' +
+																					'<div class="row">' +
+																					'<div class="col-sm-1 col-lg-1"></div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">' +
+																					'<label for="" class="control-label">TIL1 Cash</label>' +
+																					'</div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
+																					'<input class="form-control" id="id_TIL1_Cash" maxlength="5" name="TIL1_Cash" type="number" autocomplete="off" onchange="Update_TIL_Total(this);"" required /> ' +
+																					'</div> ' +
+																					'</div>' +
+																					'<br>' +
+
+																					'<div class="row">' +
+																					'<div class="col-sm-1 col-lg-1"></div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">' +
+																					'<label for="" class="control-label" >TIL1 Card</label>' +
+																					'</div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
+																					'<input class="form-control" id="id_TIL1_Card" maxlength="5"	name="TIL1_Card" type="number" autocomplete="off" onchange="Update_TIL_Total(this);" required/>' +
+																					'</div>' +
+																					'</div>' +
+																					'<br>' +
+
+
+																					'<div class="row">' +
+																					'<div class="col-sm-1 col-lg-1"></div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
+																					'<label for="" class="control-label" id="form.TIL1_Total.label">TIL1 Total</label>' +
+																					'</div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
+																					'<input readonly class="form-control" id="id_TIL1_Total" maxlength="5"name="TIL1_Total" type="number" autocomplete="off" onchange="Update_TIL_Total(this);" />' +
+																					'</div>' +
+																					'</div>' +
+																					'<br>' +
+
+
+																					'<div class="row">' +
+																					'<div class="col-sm-1 col-lg-1"></div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">' +
+																					'<label for="" class="control-label" >TIL2 Sale</label>' +
+																					'</div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
+																					'<input class="form-control" id="id_TIL2_Cash" maxlength="5"	name="TIL2_Cash" type="number" autocomplete="off"   onchange="Update_TIL_Total(this);" required/>' +
+																					'</div>' +
+																					'</div>' +
+																					'<br>' +
+
+																					'<div class="row">' +
+																					'<div class="col-sm-1 col-lg-1"></div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
+																					'<label for="" class="control-label" id="form.pd_purc_rate.label">TIL2 Total</label>' +
+																					'</div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
+																					'<input readonly class="form-control" id="id_TIL2_Total" maxlength="5"name="TIL2_Total" type="text" autocomplete="off" />' +
+																					'</div>' +
+																					'</div>' +
+																					'<br>' +
+																	
+
+																	
+																					'<div class="row">' +
+																					'<div class="col-sm-1 col-lg-1"></div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">' +
+																					'<label for="" class="control-label">Bank Deposit</label>' +
+																					'</div>' +
+																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
+																					'<input  class="form-control" id="id_Bank_Deposit" maxlength="5" name="Bank_Deposit" type="number" autocomplete="off" required/>' +
+																					'</div>' +
+																			
+																					'</div>' +
+																					'<br>' +
+																					'</form> </div>  </div>',
+																	                buttons: {
+																	                    success: {
+																	                    	id: "",
+																	                        label: "Save",
+																	                        className: "btn-success Submit_form",
+																	                        callback: function () {
+																	
+																			                        	    
+																			                        	    
+
+																	                        	
+																			                        	var TIL1_Cash = $("#id_TIL1_Cash").val();
+																										var TIL1_Card = $("#id_TIL1_Card").val();
+																										var TIL1_Total = $("#id_TIL1_Total").val();
+																										var TIL2_Cash = $("#id_TIL2_Cash").val();
+																										var TIL2_Total = $("#id_TIL2_Total").val();
+																										var Bank_Deposit = $("#id_Bank_Deposit").val();
+													
+																										if (TIL1_Cash == null || TIL1_Cash == "" || TIL1_Card == "" || TIL1_Card == null ||  TIL1_Total == null|| TIL1_Total == "" || TIL2_Cash == "" || TIL2_Cash == null || TIL2_Total == null|| TIL2_Total =="" || Bank_Deposit == "" ||Bank_Deposit == null ) {
+																		                        	        alert("All the Required Fileds must be filled");
+																		                        	        return false;
+
+																		                        	  	  }
+																										else{
+																		                        	        $.ajax('/events/create_event/', { 
+																												method: 'post',
+																																dataType : "html",	
+																																data :  { start_date : start.format("YYYY-MM-DD") , TIL1_Cash : TIL1_Cash , TIL1_Card :TIL1_Card ,TIL1_Total: TIL1_Total ,TIL2_Cash :TIL2_Cash ,TIL2_Total:TIL2_Total ,Bank_Deposit:Bank_Deposit, csrfmiddlewaretoken: '{{ csrf_token }}'}, 
+																																															
+																																success: 	function(transport_calender_html) {
+																																		$(".pos-demo").notify(
+																																		transport_calender_html,
+																																		{position:"right"}
+																																		);
+																																		},
+																													
+																																error : function(xhr,errmssg,transport_html) {
+																																	console.log('Failure');
+																																	console.log(transport_calender_html);
+																																	console.log(errmssg);
+																																		}
+																																		
+																																		
+																																	}); //end of ajax request
+																												alert('refetch')
+																												
+																												calendar.fullCalendar('unselect');
+																											
+																										}
+																										
+																										calendar.fullCalendar('refetchEvents');
+							
+																					
+																						
+																	                    }
+																	                    },
+																					 danger: {
+																						  
+																					      label: "Cancel",
+																					      className: "btn-danger",
+																					      callback: function() {
+																					      					}
+																					    		},
+																					
+																	                }
+																	            });
+																	
+
+																	calendar.fullCalendar('unselect');
+																}
+																,
+																
+													eventClick: function(calEvent, jsEvent, view) {
+
+																	//display a modal
+																	var modal = 
+																	'<div class="modal fade">\
+																	  <div class="modal-dialog">\
+																	   <div class="modal-content">\
+																		 <div class="modal-body">\
+																		   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
+																		   <form class="no-margin">\
+																			  <label>Change event name &nbsp;</label>\
+																			  <input class="middle" autocomplete="off" type="text" value="' + calEvent.title + '" />\
+																			 <button type="submit" class="btn btn-sm btn-success"><i class="ace-icon fa fa-check"></i> Save</button>\
+																		   </form>\
+																		 </div>\
+																		 <div class="modal-footer">\
+																			<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> Delete Event</button>\
+																			<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cancel</button>\
+																		 </div>\
+																	  </div>\
+																	 </div>\
+																	</div>';
+																
+																
+																	var modal = $(modal).appendTo('body');
+																	modal.find('form').on('submit', function(ev){
+																		ev.preventDefault();
+																		calEvent.title = $(this).find("input[type=text]").val();
+																		calendar.fullCalendar('updateEvent', calEvent);
+																		modal.modal("hide");
 																	});
+																	modal.find('button[data-action=delete]').on('click', function() {
+																		
+																		alert('calling ajax')
+																		
+															      		 $.ajax('/events/remove_event', { 
+																				method: 'post',
+																				dataType : "html",	
+																 				data :  { event_id : calEvent._id, csrfmiddlewaretoken: '{{ csrf_token }}'}, 
+																					
+																 				success: 	function(transport_calender_html) {
+																 								alert('caling notify')
+																								//console.log(transport_calender_html);
+																								//alert(transport_calender_html)
+																								$(".pos-demo").notify(
+																										transport_calender_html,
+																										{position:"right"}
+																									
+																									);
+																							},
+
+																				error : function(xhr,errmssg,transport_html) {
+																					console.log('Failure');
+																					console.log(transport_calender_html);
+																					console.log(errmssg);
+
+																					}
+																		}); // end new Ajax.Request
+																		
+																		
+																		calendar.fullCalendar('removeEvents' , function(ev){
+																			return (ev._id == calEvent._id);
+																		})
+																		modal.modal("hide");
+																	});
+																	
+																	modal.modal('show').on('hidden', function(){
+																		modal.remove();
+																	});
+																	
+													}
 			
 
-																calendar.fullCalendar('unselect');
-														},	
-																
-																
-												// second block for modal rendering
 												
-														eventClick: function(calEvent, jsEvent, view) {
-
-													//display a modal
-													var modal = 
-													'<div class="modal fade">\
-													  <div class="modal-dialog">\
-													   <div class="modal-content">\
-														 <div class="modal-body">\
-														   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
-														   <form class="no-margin">\
-															  <label>Change event name &nbsp;</label>\
-															  <input class="middle" autocomplete="off" type="text" value="' + calEvent.title + '" />\
-															 <button type="submit" class="btn btn-sm btn-success"><i class="ace-icon fa fa-check"></i> Save</button>\
-														   </form>\
-														 </div>\
-														 <div class="modal-footer">\
-															<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> Delete Event</button>\
-															<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cancel</button>\
-														 </div>\
-													  </div>\
-													 </div>\
-													</div>';
-												
-												
-													var modal = $(modal).appendTo('body');
-													modal.find('form').on('submit', function(ev){
-														ev.preventDefault();
-										
-														calEvent.title = $(this).find("input[type=text]").val();
-														calendar.fullCalendar('updateEvent', calEvent);
-														modal.modal("hide");
-													});
-													modal.find('button[data-action=delete]').on('click', function() {
-														calendar.fullCalendar('removeEvents' , function(ev){
-															return (ev._id == calEvent._id);
-														})
-														modal.modal("hide");
-													});
-													
-													modal.modal('show').on('hidden', function(){
-														modal.remove();
-													});
-
-	
-														}
+																		
 														
 	});
 
@@ -153,10 +329,79 @@ $(document).ready(function(){
 		
 </script>
 
+<script>
+
+function  Update_TIL_Total() {
+
+
+	
+	if ($("#id_TIL1_Cash").val() ) {
+	
+		var TIL1_CASH = $("#id_TIL1_Cash").val()
+	
+	}	else {
+	
+		var TIL1_CASH = 0;
+	}
+	
+	
+		
+	if ($("#id_TIL1_Card").val() ) {
+	
+		var TIL1_CARD = $("#id_TIL1_Card").val()
+	
+	}
+	else {
+	
+		var TIL1_CARD = 0;
+	}
+	
+		
+	if ($("#id_TIL2_Cash").val() ) {
+	
+		var TIL2_CASH = $("#id_TIL2_Cash").val()
+	
+	}else {
+	
+		var TIL2_CASH = 0;
+	}
+	
+
+
+	var TIL1_Total = parseFloat(TIL1_CASH) + parseFloat(TIL1_CARD)
+ 	var TIL2_Total = parseFloat(TIL2_CASH)
+	
+ 	
+ 	$("#id_TIL1_Total").val(TIL1_Total.toFixed(2))
+ 	
+ 	$("#id_TIL2_Total").val(TIL2_Total.toFixed(2))
+ 	
+ 	
+
+
+ 	
+ }
+ 
+ 
+ </script>
 {% endblock Java_Scripts %}
+
+{% block ColType %}
+
+
+<div class="row">
+        <div class="col-sm-11 col-lg-offset-3  col-lg-6 col-md-11 col-xs-11 ">
+                {% endblock %}
 
 
 {% block Form %} 
+
+<div class="row">
+<div class="col-xs-1">
+	<p class="center"> <span class="box pos-demo"></span></p>
+</div>
+	
+</div>
 
 <div class="row">
 							<div class="col-xs-12">
@@ -177,48 +422,11 @@ $(document).ready(function(){
 </div>
 								
 					
-<!-- Modals HTML -->
-								<div id="myModal" class="modal fade">
-								
-								
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"
-													aria-hidden="true">&times;</button>
-												<h4 class="modal-title">View Transaction</h4>
-											</div>
-											
-											<div class="modal-body">
-										
-											<div class="col-lg-4"></div>
-
-												<button type="button" class="btn btn-default"data-dismiss="modal">Close</button>
-											</div>
-											
-
-										</div>
-										<div class="modal-footer">
-
-
-											</div>
-										</div>
-									</div>
- <!-- End of Modal  -->
-
 		
 
 {% endblock Form %}
 			
-					
-
-					
-					
-
-					
-{% block Shortcut %} 
-
- {% endblock %}
+{% block Shortcut %}{% endblock Shortcut %}
 				
 
 

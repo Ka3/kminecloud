@@ -29,8 +29,7 @@ urlpatterns = [
     url(r'^kmine_auth/', include('django.contrib.auth.urls')),
     url(r'^home/', include('landing.urls')),
     url(r'^events/', include('events.urls')),
-    
-    
+    url(r'^form_wizard/', include('form_wizard.urls')),    
     
     #url(r'^(?i)events/', include('events.urls')),
     ]

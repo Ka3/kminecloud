@@ -1,0 +1,187 @@
+															select: function(start, end, allDay) {
+																	
+																	alert(start)
+																	
+																	$('#modal_form').on('submit', function(ev){
+																		ev.preventDefault();
+																		if (TIL1_Cash !== null) {
+																		TIL1_Cash = $("#id_TIL1_Cash").val();
+																		TIL1_Card = $("#id_TIL1_Card").val();
+																		TIL1_Total = $("#id_TIL1_Total").val();
+																		TIL2_Cash = $("#id_TIL2_Cash").val();
+																		TIL2_Total = $("#id_TIL2_Total").val();
+																		Bank_Deposit = $("#id_Bank_Deposit").val();
+				
+																		console.log('Form Submitted')
+																		alert(TIL1_Cash)
+																		alert('calling Event')
+																		
+																		$.ajax('/events/create_event/', { 
+																						method: 'post',
+																						dataType : "html",	
+																						data :  { start_date : start.format("YYYY-MM-DD") , TIL1_Cash : TIL1_Cash , TIL1_Card :TIL1_Card ,TIL1_Total: TIL1_Total ,TIL2_Cash :TIL2_Cash ,TIL2_Total:TIL2_Total ,Bank_Deposit:Bank_Deposit, csrfmiddlewaretoken: '{{ csrf_token }}'}, 
+																																					
+																						success: 	function(transport_calender_html) {
+																								$(".pos-demo").notify(
+																								transport_calender_html,
+																								{position:"right"}
+																								);
+																								},
+																			
+																						error : function(xhr,errmssg,transport_html) {
+																							console.log('Failure');
+																							console.log(transport_calender_html);
+																							console.log(errmssg);
+																								}
+																								
+																						
+																							}); //end of ajax request
+																		
+																		calendar.fullCalendar('unselect');
+																		$( '#modal_form' ).each(function(){
+																		    this.reset();
+																		    alert('form resetted')
+																		});
+																		
+																		$('.modal').on('hidden.bs.modal', function () {
+																						$(this).find(':input').val('');
+																					    
+																		});
+																		
+																		$('.modal').modal('hide');
+																		
+																		$("#modal_form_submit").unbind("click").click(ev);
+																		start = null
+																		alert(start)
+																		
+																		return false	
+																		true
+																	});
+
+																	
+																	$('.test-modal').modal('show').on('hidden', function(){
+																		modal.remove();
+																	});
+																	
+																	
+																	
+																	//calendar.fullCalendar( 'rerenderEvents' );
+																	true
+																	},
+																	}
+																
+												// second block for modal rendering
+																	unselect: function(){
+																	    $('#modal_form_submit').unbind();
+																	},
+																	
+																	
+																====================================<!DOCTYPE 
+																
+																
+																
+																<!-- Modals HTML -->
+		<div id='Modal_Form'>
+		<div id='Add_Event_Modal' class="test-modal modal fade">
+		  <div class="modal-dialog">
+		   <div class="modal-content">
+			 <div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>
+					
+					<form id='modal_form'>
+					<div class="row">
+						<div class="col-sm-1 col-lg-1"></div>
+						<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">
+							<label for="" class="control-label">TIL1 Cash</label>
+					</div>
+						<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">
+							<input class="form-control" id="id_TIL1_Cash" maxlength="5"
+								name="TIL1_Cash" type="number" autocomplete="off" onchange="Update_TIL_Total(this);"" required />
+						</div>
+					</div>
+					<br>
+
+					<div class="row">
+						<div class="col-sm-1 col-lg-1"></div>
+						<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">
+							<label for="" class="control-label" >TIL1 Card</label>
+						</div>
+						<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">
+							<input class="form-control" id="id_TIL1_Card" maxlength="5"
+								name="TIL1_Card" type="number" autocomplete="off" onchange="Update_TIL_Total(this);" required/>
+						</div>
+					</div>
+					<br>
+
+
+					<div class="row">
+						<div class="col-sm-1 col-lg-1"></div>
+						<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">
+							<label for="" class="control-label" id="form.TIL1_Total.label">TIL1 Total</label>
+						</div>
+						<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">
+							<input readonly class="form-control" id="id_TIL1_Total" maxlength="5"
+								name="TIL1_Total" type="number" autocomplete="off" onchange="Update_TIL_Total(this);" />
+						</div>
+					</div>
+					<br>
+
+
+					<div class="row">
+						<div class="col-sm-1 col-lg-1"></div>
+						<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">
+							<label for="" class="control-label" >TIL2 Sale</label>
+						</div>
+						<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">
+							<input class="form-control" id="id_TIL2_Cash" maxlength="5"
+								name="TIL2_Cash" type="number" autocomplete="off"   onchange="Update_TIL_Total(this);" required/>
+						</div>
+					</div>
+					<br>
+	
+	
+	
+	
+	
+					<div class="row">
+						<div class="col-sm-1 col-lg-1"></div>
+						<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">
+							<label for="" class="control-label" id="form.pd_purc_rate.label">TIL2 Total</label>
+						</div>
+						<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">
+							<input readonly class="form-control" id="id_TIL2_Total" maxlength="5"
+								name="TIL2_Total" type="text" autocomplete="off" />
+						</div>
+					</div>
+					<br>
+	
+
+	
+					<div class="row">
+					<div class="col-sm-1 col-lg-1"></div>
+					<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">
+						<label for="" class="control-label">Bank Deposit</label>
+					</div>
+					<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">
+						<input  class="form-control" id="id_Bank_Deposit" maxlength="5"
+							name="Bank_Deposit" type="number" autocomplete="off" required/>
+					</div>
+			
+					</div>
+					<br>
+					
+						<button type="submit" id='modal_form_submit'class="btn btn-sm btn-danger" data-action="add"><i class="ace-icon fa fa-trash-o"></i> Submit</button>\
+						<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cancel</button>\
+					</form>
+														 </div>
+														 <div class="modal-footer">
+													 </div>
+													  </div>
+													 </div>
+													</div>
+													</div>
+ <!-- End of Modal  -->
+ 
+ 
+ 
+ unspecified PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
