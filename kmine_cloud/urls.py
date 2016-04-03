@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^form_wizard/', include('form_wizard.urls')),    
     
     #url(r'^(?i)events/', include('events.urls')),
-    ]
+    ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
 

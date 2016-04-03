@@ -102,155 +102,8 @@ $(document).ready(function(){
 										    selectHelper: true,
 										    height: "auto",			
 																
-																select: function(start, end, allDay) {
-																	
-
-																	bootbox.dialog({
-																	                title: "Sale update for " + start.format("DD-MM-YYYY"),
-																	                message: 					'<div class="row">  ' +
-																					'<div class="col-md-12"> ' +
-																					'<form id="modal_form">' +
-																					'<div class="row">' +
-																					'<div class="col-sm-1 col-lg-1"></div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">' +
-																					'<label for="" class="control-label">TIL1 Cash</label>' +
-																					'</div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
-																					'<input class="form-control" id="id_TIL1_Cash" maxlength="5" name="TIL1_Cash" type="number" autocomplete="off" onchange="Update_TIL_Total(this);"" required /> ' +
-																					'</div> ' +
-																					'</div>' +
-																					'<br>' +
-
-																					'<div class="row">' +
-																					'<div class="col-sm-1 col-lg-1"></div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">' +
-																					'<label for="" class="control-label" >TIL1 Card</label>' +
-																					'</div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
-																					'<input class="form-control" id="id_TIL1_Card" maxlength="5"	name="TIL1_Card" type="number" autocomplete="off" onchange="Update_TIL_Total(this);" required/>' +
-																					'</div>' +
-																					'</div>' +
-																					'<br>' +
-
-
-																					'<div class="row">' +
-																					'<div class="col-sm-1 col-lg-1"></div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
-																					'<label for="" class="control-label" id="form.TIL1_Total.label">TIL1 Total</label>' +
-																					'</div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
-																					'<input readonly class="form-control" id="id_TIL1_Total" maxlength="5"name="TIL1_Total" type="number" autocomplete="off" onchange="Update_TIL_Total(this);" />' +
-																					'</div>' +
-																					'</div>' +
-																					'<br>' +
-
-
-																					'<div class="row">' +
-																					'<div class="col-sm-1 col-lg-1"></div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">' +
-																					'<label for="" class="control-label" >TIL2 Sale</label>' +
-																					'</div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
-																					'<input class="form-control" id="id_TIL2_Cash" maxlength="5"	name="TIL2_Cash" type="number" autocomplete="off"   onchange="Update_TIL_Total(this);" required/>' +
-																					'</div>' +
-																					'</div>' +
-																					'<br>' +
-
-																					'<div class="row">' +
-																					'<div class="col-sm-1 col-lg-1"></div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
-																					'<label for="" class="control-label" id="form.pd_purc_rate.label">TIL2 Total</label>' +
-																					'</div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
-																					'<input readonly class="form-control" id="id_TIL2_Total" maxlength="5"name="TIL2_Total" type="text" autocomplete="off" />' +
-																					'</div>' +
-																					'</div>' +
-																					'<br>' +
-																	
-
-																	
-																					'<div class="row">' +
-																					'<div class="col-sm-1 col-lg-1"></div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5 required">' +
-																					'<label for="" class="control-label">Bank Deposit</label>' +
-																					'</div>' +
-																					'<div class="col-sm-4 col-lg-4  col-md-5 col-xs-5">' +
-																					'<input  class="form-control" id="id_Bank_Deposit" maxlength="5" name="Bank_Deposit" type="number" autocomplete="off" required/>' +
-																					'</div>' +
-																			
-																					'</div>' +
-																					'<br>' +
-																					'</form> </div>  </div>',
-																	                buttons: {
-																	                    success: {
-																	                    	id: "",
-																	                        label: "Save",
-																	                        className: "btn-success Submit_form",
-																	                        callback: function () {
-																	
-																			                        	    
-																			                        	    
-
-																	                        	
-																			                        	var TIL1_Cash = $("#id_TIL1_Cash").val();
-																										var TIL1_Card = $("#id_TIL1_Card").val();
-																										var TIL1_Total = $("#id_TIL1_Total").val();
-																										var TIL2_Cash = $("#id_TIL2_Cash").val();
-																										var TIL2_Total = $("#id_TIL2_Total").val();
-																										var Bank_Deposit = $("#id_Bank_Deposit").val();
-													
-																										if (TIL1_Cash == null || TIL1_Cash == "" || TIL1_Card == "" || TIL1_Card == null ||  TIL1_Total == null|| TIL1_Total == "" || TIL2_Cash == "" || TIL2_Cash == null || TIL2_Total == null|| TIL2_Total =="" || Bank_Deposit == "" ||Bank_Deposit == null ) {
-																		                        	        alert("All the Required Fileds must be filled");
-																		                        	        return false;
-
-																		                        	  	  }
-																										else{
-																		                        	        $.ajax('/Retail_Report/create_event/', { 
-																												method: 'post',
-																																dataType : "html",	
-																																data :  { start_date : start.format("YYYY-MM-DD") , TIL1_Cash : TIL1_Cash , TIL1_Card :TIL1_Card ,TIL1_Total: TIL1_Total ,TIL2_Cash :TIL2_Cash ,TIL2_Total:TIL2_Total ,Bank_Deposit:Bank_Deposit, csrfmiddlewaretoken: '{{ csrf_token }}'}, 
-																																															
-																																success: 	function(transport_calender_html) {
-																																		$(".pos-demo").notify(
-																																		transport_calender_html,
-																																		{position:"right"}
-																																		);
-																																		calendar.fullCalendar('refetchEvents');
-																																		},
-																													
-																																error : function(xhr,errmssg,transport_html) {
-																																	console.log('Failure');
-																																	//console.log(transport_calender_html);
-																																	console.log(errmssg);
-																																		}
-																																		
-																																		
-																																	}); //end of ajax request
-																												
-																												calendar.fullCalendar('unselect');
-																											
-																										}
-																										
-							
-																					
-																						
-																	                    }
-																	                    },
-																					 danger: {
-																						  
-																					      label: "Cancel",
-																					      className: "btn-danger",
-																					      callback: function() {
-																					      					}
-																					    		},
-																					
-																	                }
-																	            });
-																	
-
-																	calendar.fullCalendar('unselect');
-																}
-																,
+																
+																
 																
 													eventClick: function(calEvent, jsEvent, view) {
 
@@ -267,7 +120,6 @@ $(document).ready(function(){
 																		   </form>\
 																		 </div>\
 																		 <div class="modal-footer">\
-																			<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> Delete Event</button>\
 																			<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cancel</button>\
 																		 </div>\
 																	  </div>\
@@ -357,7 +209,7 @@ $(document).ready(function(){
 function Month_Select() {
 		var start_date = $("#datepicker_from").val();
 		var end_date =  $("#datepicker_to").val()
-		alert('place')
+		//alert('place')
 		get_report(start_date, end_date)
 
 		 } //end of submit function 		
@@ -383,7 +235,7 @@ function get_report(start_date, end_date) {
 							
     			   			 // Start of calendar render
     			   			var date_new = new Date(start_date)
-    			   			alert(date_new)
+    			   			//alert(date_new)
     			   			$('#calendar').fullCalendar('gotoDate', date_new )
 
     						    	        
@@ -474,10 +326,14 @@ function get_report(start_date, end_date) {
 													<tr>
 												 
 												 	 	 <th>Transaction Date  </th>
-												 	 	 <th>TIL1 Total  </th>
+												 	 	 
 												 	 	 <th>TIL1 Card </th>
 												 	 	 <th>TIL1 Cash </th>
+												 	 	 <th>TIL2 Cash  </th>
+												 	 	 <th>TIL1 Total  </th>
 												 	 	 <th>TIL2_Total </th>
+												 	 	 <th>Grand_Total </th>
+												 	 	 <th>Bank Deposit </th>
   													</tr>
 												</thead>
 
@@ -487,9 +343,10 @@ function get_report(start_date, end_date) {
 											<tr>
 
 												<td>{{ invoice.Collection_Date }}</td>
-												<td>{{ invoice.TIL1_Total }}</td>
+												
 												<td>{{ invoice.TIL1_Card }}</td>
 												<td>{{ invoice.TIL1_Cash }}</td>
+												<td>{{ invoice.TIL1_Total }}</td>
 												<td>{{ invoice.TIL2_Total }}</td>
 											
 											</tr>
