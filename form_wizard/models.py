@@ -19,6 +19,7 @@ class Person(models.Model):
 	first_name = models.CharField("First Name",max_length=30)
 	last_name = models.CharField(max_length=30)
 	E_Mail = models.EmailField()
+	Council = models.CharField(max_length=100)
         Date_of_Birth = models.DateField()
         Photo = models.ImageField(null=True,blank=True, upload_to=user_directory_path)
 	Age = models.IntegerField()

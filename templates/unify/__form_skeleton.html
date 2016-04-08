@@ -12,13 +12,40 @@
 
 {% block Content %}
 
-{% block ColType %}
-{% endblock ColType %}
+<div class="row">
+<div class="col-md-2">
+	
+	{% include "IRM/left_sidebar.html" %}
+				
 
-
+<div class="col-xs-8 col-lg-8 col-md-8 col-sm-8">
 {% block Form %}
 
 {% endblock Form %}
+</div>
 
+<div class="col-md-2">
+					<br>
+					<br>
 
+					<!-- Trending -->
+					<ul class="list-unstyled blog-trending margin-bottom-50">
+						<li>
+							<h3><a href="#">Proin dapibus ornare magna.</a></h3>
+							<small>19 Jan, 2015 / <a href="#">Hi-Tech,</a> <a href="#">Technology</a></small>
+						</li>
+						<li>
+							<h3><a href="#">Fusce at diam ante.</a></h3>
+							<small>17 Jan, 2015 / <a href="#">Artificial Intelligence</a></small>
+						</li>
+						<li>
+							<h3><a href="#">Donec quis consequat magna...</a></h3>
+							<small>5 Jan, 2015 / <a href="#">Web,</a> <a href="#">Webdesign</a></small>
+						</li>
+					</ul>
+					<!-- End Trending -->
+
+					<!-- End Photostream -->
+</div>
+</div>
 {% endblock Content %}

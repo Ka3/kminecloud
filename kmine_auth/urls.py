@@ -10,7 +10,5 @@ urlpatterns = patterns('',
 			url(r'^logout/$', views.log_out, name='logout'),
 			url(r'^auth/', views.auth_view,name='auth_view'),
 			url(r'^forgot-password/$',  views.forgot_password,    name="forgot-password" ),
-
-
 			)
 

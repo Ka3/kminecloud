@@ -1,0 +1,125 @@
+{% extends "unify/__form_skeleton.html" %}
+
+{% load form_custom %}
+{% load i18n %}
+
+{% block Page_Theme %}purple.css{% endblock Page_Theme %}
+
+{% block Style_sheets %}
+	
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+	<!--[if lt IE 9]><link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/css/sky-forms-ie8.css"><![endif]-->
+	
+
+{% endblock Style_sheets %}
+
+
+{% block Java_Scripts %}
+	<script type="text/javascript" src="/static/assets_u/plugins/back-to-top.js"></script>
+	<script type="text/javascript" src="/static/assets_u/plugins/smoothScroll.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.form.min.js"></script>
+	<script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="/static/js/bootbox.min.js"></script>
+	
+	
+
+	
+
+	
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			
+			//$('#Table_list').DataTable();
+			
+			var oTable = $('#Table_list').DataTable({
+				"fnDrawCallback":function(oSettings){
+					
+					  $('.more_button').click(function() {
+						    alert($(this).attr('value'));
+						  });
+						  
+						  $('.edit_button').click(function() {
+							  	var instance = $(this).attr('value');
+							  	window.location.href = "/irm/edit_agency/"+instance
+							  });
+						  
+						  $('.delete_button').click(function() {
+		  				  	  	  agency_id = $(this).attr('value')							 
+							      bootbox.confirm("Are you sure you want to delte Agency with ID " + agency_id + " ?" , function(result) {
+							    	  $.ajax('/IRM/delete_agency/'+agency_id, { 
+											type: 'POST',
+											dataType : "html",	
+											data :  { csrfmiddlewaretoken: '{{ csrf_token }}'}, 
+																												
+											success: 	function(get_record_html) {
+																											
+												$('#alert-2').replaceWith(get_record_html)
+
+												 },
+
+											error : function(xhr,errmssg,transport_html) {
+												console.log('Failure');
+												console.log(transport_html);
+												console.log(errmssg);
+													}
+												}); // end new Ajax.Request
+								  
+								     }); 
+							  }); 
+				}
+				});
+
+		});
+	</script>
+	
+{% endblock Java_Scripts %}
+
+
+{% block Form %}
+					<div id="alert-2"></div>
+					<br><br>
+
+					<div class="panel panel-grey margin-bottom-40">
+						<div class="panel-heading">
+							<h3 class="panel-title"><i class="fa fa-globe"></i> Agencies </h3>
+						</div>
+						<div class="panel-body">
+							<table id='Table_list' class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Agency ID</th>
+										<th>Name </th>
+										<th class="hidden-sm">Agency Full Name</th>
+										<th>Agency Type</th>
+										<th>Location</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+							
+								{% for agency in Agencies_list %}
+									<tr>
+										<td>{{agency.id}}</td>
+										<td>{{agency.Agency_Name}}</td>
+										<td class="hidden-sm">{{agency.Agency_FullName}}</td>
+										<td>{{agency.Agency_Type}}</td>
+										<td>{{agency.Agency_Type}}</td>
+										<td>
+											<button class="btn btn-warning btn-xs more_button" value={{agency.id}}><i class="fa fa-pencil"></i>More</button>
+											<button class="btn btn-warning btn-xs edit_button" value={{agency.id}}><i class="fa fa-pencil"></i>Edit</button>
+											<button class="btn btn-danger btn-xs delete_button" value={{agency.id}}><i class="fa fa-trash-o"></i></button>
+										</td>						
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!--End Table Bordered-->
+
+					<div class="margin-bottom-60"></div>						
+
+{% endblock Form %}

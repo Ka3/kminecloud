@@ -53,6 +53,7 @@ class ContactWizard(SessionWizardView):
     
 
 def process_form_data(form_list):
+    print 'Calling Processing Form Data'
     form_data = [form.cleaned_data for form in form_list]
     new = Person()
     for form in form_list:

@@ -33,6 +33,7 @@ input[type="file"] {
 	<script type="text/javascript" src="/static/assets_u/plugins/smoothScroll.js"></script>
 	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
 	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.form.min.js"></script>
 	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="/static/assets_u/js/plugins/masking.js"></script>
 	<script type="text/javascript" src="/static/assets_u/js/app.js"></script>
@@ -41,6 +42,7 @@ input[type="file"] {
 	<script type="text/javascript" src="/static/assets_u/js/plugins/datepicker.js"></script>
 	<script type="text/javascript" src="/static/assets_u/js/plugins/validation.js"></script>
 	<script type="text/javascript" src="/static/assets_u/js/plugins/style-switcher.js"></script>
+	<script type="text/javascript" src="/static/assets_u/assets/js/forms/contact.js"></script>>
 
 	
 	<script type="text/javascript">
@@ -49,6 +51,7 @@ input[type="file"] {
 			Masking.initMasking();
 			Datepicker.initDatepicker();
 			Validation.initValidation();
+			ContactForm.initContactForm();
 			StyleSwitcher.initStyleSwitcher();
 			
 			
@@ -124,7 +127,7 @@ content profile
 								<div id="profile" class="profile-edit tab-pane fade in active">
 									<h2 class="heading-md"> Profile Summary </h2>
 									
-								<form method="post" enctype="multipart/form-data" id="sky-form1" class="sky-form">
+								<form method="post" enctype="multipart/form-data" id="sky-form3" class="sky-form">
 										
 								{% csrf_token %} 
 								{{ wizard.form.media }}

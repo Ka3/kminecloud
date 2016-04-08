@@ -38,15 +38,16 @@
 	<!-- <link rel="stylesheet" href="/static/assets_u/plugins/owl-carousel/owl-carousel/owl.carousel.css"> -->
 
 	<!-- CSS Theme -->
-	<link rel="stylesheet" href="/static/assets_u/css/theme-colors/default.css" id="style_color">
+	<link rel="stylesheet" href="/static/assets_u/css/theme-colors/{% block Page_Theme %}default.css{% endblock Page_Theme %}">
 	<link rel="stylesheet" href="/static/assets_u/css/theme-skins/dark.css">
 
 	<!-- CSS Customization -->
 	<link rel="stylesheet" href="/static/assets_u/css/custom.css">
-	
-	{% block Style_sheets %} .
+	{% block Style_sheets %}
 	
 	{% endblock Style_sheets %}
+	
+
 	
 </head>
 
@@ -398,25 +399,19 @@
 
 		<!--=== Notification Block ===-->
 		
-		<div class="purchase">
-			<div class="container overflow-h">
-				<div class="row">
-					<div class="col-md-9 animated fadeInLeft">
-						<span>Unify is a clean and fully responsive incredible Template.</span>
-						<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi  vehicula sem ut volutpat. Ut non libero magna fusce condimentum eleifend enim a feugiat corrupti quos.</p>
-					</div>
-					<div class="col-md-3 btn-buy animated fadeInRight">
-						<a href="#" class="btn-u btn-u-lg"><i class="fa fa-cloud-download"></i> Download Now</a>
-					</div>
-				</div>
+		<!--=== Breadcrumbs ===-->
+		<!--
+		<div class="breadcrumbs">
+			<div class="container">
+				<h1 class="text-center">{% block Page_Heading %}Page heading{% endblock Page_Heading %}</h1>
 			</div>
-		</div><!--/row-->
-		<!-- End Purchase Block -->
+		</div><!--/breadcrumbs-->
+		<!--=== End Breadcrumbs ===-->
 
 
 
 		<!--=== Content Part ===-->
-		<div class="container {% block Body_container %}  {% endblock Body_container %}">
+		<div class="container {% block Body_container %} full-width {% endblock Body_container %}">
 		{% block Content %}
 			<!-- Service Blocks -->
 			<div class="row margin-bottom-30">

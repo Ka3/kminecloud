@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'Retail_Report',
     'landing',
     'events',
-    'form_wizard'
+    'form_wizard',
+    'IRM'
 
 ]
 
@@ -56,6 +57,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'kmine_cloud.current_user.CurrentUserMiddleware',
 ]
 
 ROOT_URLCONF = 'kmine_cloud.urls'
@@ -85,7 +87,7 @@ WSGI_APPLICATION = 'kmine_cloud.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join('/app/', 'db.sqlite3'),
     }
 }
 

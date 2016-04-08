@@ -26,13 +26,14 @@ class AdminDateWidget(forms.DateInput):
 
 class ContactForm1(ModelForm):
      first_name = forms.CharField(widget=forms.TextInput(attrs={'required': 'true'}))
+     Council = forms.CharField(widget=forms.TextInput(attrs={'required': 'true'}))
      E_Mail = forms.EmailField(widget=forms.EmailInput(attrs={'required': 'true'}))
      last_name = forms.CharField(widget=forms.TextInput(attrs={'required': 'true'}))
      
      Photo = forms.ImageField(widget=forms.FileInput(attrs={'onchange': 'readURL(this);'}),required=False)
      class Meta:
         model = Person
-        fields = ('first_name',  'E_Mail', 'last_name', 'Photo')
+        fields = ('first_name', 'Council', 'E_Mail', 'last_name', 'Photo')
     
 class ContactForm2(ModelForm):
     Date_of_Birth = forms.DateField(widget=AdminDateWidget)
