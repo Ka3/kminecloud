@@ -1,0 +1,45 @@
+{% load menu %}{% generate_menu %}
+
+		<div class="header-v4">
+		<!-- Topbar -->
+			<div class="topbar-v1">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<ul class="list-inline top-v1-contacts">
+								<li>
+									<i class="fa fa-envelope"></i> Email: <a href="mailto:info@htmlstream.com">info@htmlstream.com</a>
+								</li>
+								<li>
+									<i class="fa fa-phone"></i> Hotline: (1) 396 4587 99
+								</li>
+							</ul>
+						</div>
+
+						<div class="col-md-6">
+							<ul class="list-inline top-v1-data">
+
+								<i class="fa fa-sign-out"></i><li><a href="/kmine_auth/logout">Log Out</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Topbar -->
+		
+			<div class="navbar navbar-default mega-menu" role="navigation">
+				
+				<div class="clearfix"></div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-responsive-collapse">
+					<div class="container">
+						<ul class="nav navbar-nav">
+							{% with Type='Menu_bar' Title='Agency' menu=menus.Agency %}{% include "IRM/nav_bar.html" %}{% endwith %}
+							{% with Type='Menu_bar' Title='Panel Members' menu=menus.Panel_Members %}{% include "IRM/nav_bar.html" %}{% endwith %}
+						</ul>
+						<!-- End Search Block -->
+					</div><!--/end container-->
+				</div><!--/navbar-collapse-->
+			</div>
+			<!-- End Navbar -->
+		</div>

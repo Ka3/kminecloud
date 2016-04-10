@@ -5,10 +5,10 @@ from django.core.urlresolvers import reverse_lazy
 from django.conf.urls import *
 
 
-urlpatterns = patterns('',
+urlpatterns = [
 			url(r'^login/', views.login,name='login'),
 			url(r'^logout/$', views.log_out, name='logout'),
 			url(r'^auth/', views.auth_view,name='auth_view'),
 			url(r'^forgot-password/$',  views.forgot_password,    name="forgot-password" ),
-			)
+			]
 

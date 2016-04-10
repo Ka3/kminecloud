@@ -110,9 +110,9 @@ class IRM_Agency(models.Model):
 class IRM_Agency_Admin_Contact(models.Model):
     def __str__(self):
         return self.Firstname + ' ' + self.Surname 
-    AgencyID_FK = models.ForeignKey(IRM_Agency)
-    Title = models.ForeignKey(IRM_Title)
-    Firstname =  models.CharField(max_length=100, help_text='First name of Agency Admin')
+    AgencyID_FK = models.ForeignKey(IRM_Agency,verbose_name='Agency')  #
+    Title = models.ForeignKey(IRM_Title) #
+    Firstname =  models.CharField(max_length=100, help_text='First name of Agency Admin') 
     Surname = models.CharField(max_length=100, help_text='Surname of Agency Admin')
     Position = models.CharField(max_length=100, help_text='Position(Designation) in the Agency')
     Address_Line_1 = models.CharField(max_length=200, help_text='Placeholder')
@@ -125,9 +125,19 @@ class IRM_Agency_Admin_Contact(models.Model):
     Phone = models.CharField(max_length=200, blank=True, null=True,  help_text='Phone Number')
     Mobile = models.CharField(max_length=200, blank=True, null=True, help_text='Mobile Number')
     Email = models.EmailField(blank=True, null=True)
-    Fax = models.IntegerField(help_text='Mobile Number')
+    Fax = models.IntegerField(blank=True, null=True, help_text='Fax Number')
     Role = models.CharField(max_length=50, choices=Contact_Role,help_text='Role Type')
     Notes = models.TextField(max_length=1000, blank=True, null=True,help_text='Short Notes about Agency')
+    Modified_by =  models.CharField(max_length=100,blank=True,null=True)
+    Created_by = models.CharField(max_length=100,blank=True,null=True,editable=False)
+    created = models.DateTimeField()
+    modified = models.DateTimeField()
+    
+    def save(self, *args, **kwargs):
+            if not self.id:
+                self.created = timezone.now()
+            self.modified = timezone.now()
+            return super(IRM_Agency_Admin_Contact, self).save(*args, **kwargs)
 
 """
 

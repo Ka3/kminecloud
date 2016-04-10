@@ -1,0 +1,33 @@
+					
+							
+							
+							<!-- Home -->
+								{% if Type == 'Menu_bar' %}
+								<li class="dropdown">
+								
+								<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+									{{ Title }}
+								</a>
+								<ul class="dropdown-menu">
+								
+								{% for item in menu %}
+									<li><a href="{{ item.url }}">{{ item.title }}</a></li>
+								{% endfor %}
+								
+								</li>
+								</ul>
+								{% endif %}
+								
+								{% if Type == 'Left_bar' %}
+								
+								<li class="list-group-item list-toggle">
+								<a data-toggle="collapse" data-parent="#sidebar-nav" href="#id_nav_{{ Title|cut:' ' }}"> {{ Title }} </a>
+								<ul id="id_nav_{{ Title|cut:' ' }}" class="collapse">
+								{% for item in menu %}
+									<li><a href="{{ item.url }}">{{ item.title }}</a></li>
+									{% endfor %}
+								</ul>
+								</li>
+								{% endif %}
+							
+							<!-- End Home -->

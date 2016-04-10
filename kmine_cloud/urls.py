@@ -21,8 +21,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 admin.autodiscover()
 
+
 urlpatterns = [
-    url(r'^$','landing.views.index', name='home'),
+    url(r'',include('landing.urls'), name='home'),
     url(r'^admin/', admin.site.urls),
     url(r'^(?i)Retail_Report/', include('Retail_Report.urls')),
     url(r'^(?i)kmine_auth/', include('kmine_auth.urls')),
@@ -33,7 +34,7 @@ urlpatterns = [
     url(r'^(?i)IRM/', include('IRM.urls')),   
     
     #url(r'^(?i)events/', include('events.urls')),
-    ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+   ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
 

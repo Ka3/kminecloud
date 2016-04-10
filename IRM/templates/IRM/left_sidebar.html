@@ -1,47 +1,17 @@
+{% load menu %}{% generate_menu %}		
+
 					<br>
 					<br>
 
 					<ul class="list-group sidebar-nav-v1" id="sidebar-nav">
 						<!-- Typography -->
-						<li class="list-group-item list-toggle">
-							<a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-typography">Agencies</a>
-							<ul id="collapse-typography" class="collapse">
-								<li><a href="/irm/add_agency"><i class="fa  fa-plus-square-o"></i>&nbsp;&nbsp;Add Agency</a></li>
-								<li>
-									<span class="badge badge-u">New</span>
-									<a href="/irm/list_agencies"><i class="fa fa-list"></i>&nbsp;&nbsp;List</a>
-								</li>
-							</ul>
-						</li>
+
+							{% with Type='Left_bar' Title='Agency' menu=menus.Agency %}{% include "IRM/nav_bar.html" %}{% endwith %}
+							{% with Type='Left_bar' Title='Panel Members' menu=menus.Panel_Members %}{% include "IRM/nav_bar.html" %}{% endwith %}
 						<!-- End Typography -->
 
-						<!-- Buttons UI -->
-						<li class="list-group-item list-toggle">
-							<a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-buttons">Cases</a>
-							<ul id="collapse-buttons" class="collapse">
-								<li><a href="shortcode_btn_general.html"><i class="fa fa-flask"></i> General Buttons</a></li>
-								<li>
-									<span class="badge badge-u">New</span>
-									<a href="shortcode_btn_brands.html"><i class="fa fa-html5"></i> Brand &amp; Social Buttons</a>
-								</li>
-								<li>
-									<span class="badge badge-u">New</span>
-									<a href="shortcode_btn_effects.html"><i class="fa fa-bolt"></i> Loading &amp; Hover Effects</a>
-								</li>
-							</ul>
-						</li>
-						<!-- End Buttons UI -->
 
-						<!-- Thumbails -->
-						<li class="list-group-item"><a href="shortcode_thumbnails.html">Thumbnails</a></li>
-						<!-- End Thumbails -->
 
-						<!-- Charts -->
-						<li class="list-group-item">
-							<span class="badge badge-u">New</span>
-							<a href="#">Dashboards</a>
-						</li>
-						<!-- End Charts -->
 					</ul>
 				</div>
 				<!-- End Sidebar Menu -->

@@ -803,3 +803,132 @@
 [Fri Apr 08 09:16:52.867757 2016] [wsgi:error] [pid 385:tid 140290293044992] /app/kmine/kmine_cloud/landing/views.py:21: RemovedInDjango110Warning: render() must be called with a dict, not a RequestContext.
 [Fri Apr 08 09:16:52.867820 2016] [wsgi:error] [pid 385:tid 140290293044992]   return HttpResponse(template.render(context))
 [Fri Apr 08 09:16:52.867832 2016] [wsgi:error] [pid 385:tid 140290293044992] 
+[Fri Apr 08 16:00:29.055201 2016] [wsgi:error] [pid 386:tid 140290293044992] /app/kmine/kmine_cloud/landing/views.py:21: RemovedInDjango110Warning: render() must be called with a dict, not a RequestContext.
+[Fri Apr 08 16:00:29.055246 2016] [wsgi:error] [pid 386:tid 140290293044992]   return HttpResponse(template.render(context))
+[Fri Apr 08 16:00:29.055259 2016] [wsgi:error] [pid 386:tid 140290293044992] 
+[Fri Apr 08 17:08:07.485182 2016] [wsgi:error] [pid 382:tid 140290293044992] Internal Server Error: /irm/list_agencies/
+[Fri Apr 08 17:08:07.485232 2016] [wsgi:error] [pid 382:tid 140290293044992] Traceback (most recent call last):
+[Fri Apr 08 17:08:07.485244 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Apr 08 17:08:07.485255 2016] [wsgi:error] [pid 382:tid 140290293044992]     response = self.process_exception_by_middleware(e, request)
+[Fri Apr 08 17:08:07.485266 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Apr 08 17:08:07.485277 2016] [wsgi:error] [pid 382:tid 140290293044992]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Apr 08 17:08:07.485287 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/kmine_cloud/IRM/views.py", line 38, in list_agencies
+[Fri Apr 08 17:08:07.485297 2016] [wsgi:error] [pid 382:tid 140290293044992]     def list_agencies(request):
+[Fri Apr 08 17:08:07.485307 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/shortcuts.py", line 67, in render
+[Fri Apr 08 17:08:07.485317 2016] [wsgi:error] [pid 382:tid 140290293044992]     template_name, context, request=request, using=using)
+[Fri Apr 08 17:08:07.485327 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/loader.py", line 97, in render_to_string
+[Fri Apr 08 17:08:07.485338 2016] [wsgi:error] [pid 382:tid 140290293044992]     return template.render(context, request)
+[Fri Apr 08 17:08:07.485347 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/backends/django.py", line 95, in render
+[Fri Apr 08 17:08:07.485358 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self.template.render(context)
+[Fri Apr 08 17:08:07.485367 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 206, in render
+[Fri Apr 08 17:08:07.485378 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self._render(context)
+[Fri Apr 08 17:08:07.485387 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 197, in _render
+[Fri Apr 08 17:08:07.485398 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self.nodelist.render(context)
+[Fri Apr 08 17:08:07.485407 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 992, in render
+[Fri Apr 08 17:08:07.485449 2016] [wsgi:error] [pid 382:tid 140290293044992]     bit = node.render_annotated(context)
+[Fri Apr 08 17:08:07.485462 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 959, in render_annotated
+[Fri Apr 08 17:08:07.485472 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self.render(context)
+[Fri Apr 08 17:08:07.485482 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/loader_tags.py", line 173, in render
+[Fri Apr 08 17:08:07.485492 2016] [wsgi:error] [pid 382:tid 140290293044992]     return compiled_parent._render(context)
+[Fri Apr 08 17:08:07.485502 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 197, in _render
+[Fri Apr 08 17:08:07.485512 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self.nodelist.render(context)
+[Fri Apr 08 17:08:07.485522 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 992, in render
+[Fri Apr 08 17:08:07.485532 2016] [wsgi:error] [pid 382:tid 140290293044992]     bit = node.render_annotated(context)
+[Fri Apr 08 17:08:07.485542 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 959, in render_annotated
+[Fri Apr 08 17:08:07.485552 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self.render(context)
+[Fri Apr 08 17:08:07.485561 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/loader_tags.py", line 173, in render
+[Fri Apr 08 17:08:07.485571 2016] [wsgi:error] [pid 382:tid 140290293044992]     return compiled_parent._render(context)
+[Fri Apr 08 17:08:07.485581 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 197, in _render
+[Fri Apr 08 17:08:07.485591 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self.nodelist.render(context)
+[Fri Apr 08 17:08:07.485601 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 992, in render
+[Fri Apr 08 17:08:07.485611 2016] [wsgi:error] [pid 382:tid 140290293044992]     bit = node.render_annotated(context)
+[Fri Apr 08 17:08:07.485621 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 959, in render_annotated
+[Fri Apr 08 17:08:07.485631 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self.render(context)
+[Fri Apr 08 17:08:07.485641 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/loader_tags.py", line 69, in render
+[Fri Apr 08 17:08:07.485651 2016] [wsgi:error] [pid 382:tid 140290293044992]     result = block.nodelist.render(context)
+[Fri Apr 08 17:08:07.485661 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 992, in render
+[Fri Apr 08 17:08:07.485670 2016] [wsgi:error] [pid 382:tid 140290293044992]     bit = node.render_annotated(context)
+[Fri Apr 08 17:08:07.485680 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 959, in render_annotated
+[Fri Apr 08 17:08:07.485690 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self.render(context)
+[Fri Apr 08 17:08:07.485700 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/loader_tags.py", line 69, in render
+[Fri Apr 08 17:08:07.485710 2016] [wsgi:error] [pid 382:tid 140290293044992]     result = block.nodelist.render(context)
+[Fri Apr 08 17:08:07.485720 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 992, in render
+[Fri Apr 08 17:08:07.485739 2016] [wsgi:error] [pid 382:tid 140290293044992]     bit = node.render_annotated(context)
+[Fri Apr 08 17:08:07.485750 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/base.py", line 959, in render_annotated
+[Fri Apr 08 17:08:07.485760 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self.render(context)
+[Fri Apr 08 17:08:07.485770 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/template/defaulttags.py", line 168, in render
+[Fri Apr 08 17:08:07.485780 2016] [wsgi:error] [pid 382:tid 140290293044992]     len_values = len(values)
+[Fri Apr 08 17:08:07.485790 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/db/models/query.py", line 240, in __len__
+[Fri Apr 08 17:08:07.485800 2016] [wsgi:error] [pid 382:tid 140290293044992]     self._fetch_all()
+[Fri Apr 08 17:08:07.485810 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/db/models/query.py", line 1074, in _fetch_all
+[Fri Apr 08 17:08:07.485820 2016] [wsgi:error] [pid 382:tid 140290293044992]     self._result_cache = list(self.iterator())
+[Fri Apr 08 17:08:07.485829 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/db/models/query.py", line 52, in __iter__
+[Fri Apr 08 17:08:07.485839 2016] [wsgi:error] [pid 382:tid 140290293044992]     results = compiler.execute_sql()
+[Fri Apr 08 17:08:07.485849 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 848, in execute_sql
+[Fri Apr 08 17:08:07.485859 2016] [wsgi:error] [pid 382:tid 140290293044992]     cursor.execute(sql, params)
+[Fri Apr 08 17:08:07.485869 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+[Fri Apr 08 17:08:07.485879 2016] [wsgi:error] [pid 382:tid 140290293044992]     return super(CursorDebugWrapper, self).execute(sql, params)
+[Fri Apr 08 17:08:07.485888 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+[Fri Apr 08 17:08:07.485898 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self.cursor.execute(sql, params)
+[Fri Apr 08 17:08:07.485908 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/db/utils.py", line 95, in __exit__
+[Fri Apr 08 17:08:07.485918 2016] [wsgi:error] [pid 382:tid 140290293044992]     six.reraise(dj_exc_type, dj_exc_value, traceback)
+[Fri Apr 08 17:08:07.485928 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+[Fri Apr 08 17:08:07.485938 2016] [wsgi:error] [pid 382:tid 140290293044992]     return self.cursor.execute(sql, params)
+[Fri Apr 08 17:08:07.485948 2016] [wsgi:error] [pid 382:tid 140290293044992]   File "/app/kmine/lib/python2.7/site-packages/django/db/backends/sqlite3/base.py", line 323, in execute
+[Fri Apr 08 17:08:07.485958 2016] [wsgi:error] [pid 382:tid 140290293044992]     return Database.Cursor.execute(self, query, params)
+[Fri Apr 08 17:08:07.485968 2016] [wsgi:error] [pid 382:tid 140290293044992] OperationalError: no such column: IRM_irm_agency.AgencyName
+[Fri Apr 08 17:08:09.234555 2016] [authz_core:error] [pid 389:tid 140290144835328] [client 176.251.183.48:49669] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/irm/list_agencies/
+[Fri Apr 08 17:08:36.191058 2016] [authz_core:error] [pid 389:tid 140290134345472] [client 176.251.183.48:49686] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/irm/list_agencies/
+[Fri Apr 08 19:40:21.240390 2016] [wsgi:error] [pid 383:tid 140290293044992] Not Found: /testproxy.php
+[Fri Apr 08 20:09:29.552541 2016] [wsgi:error] [pid 384:tid 140290293044992] /app/kmine/kmine_cloud/landing/views.py:21: RemovedInDjango110Warning: render() must be called with a dict, not a RequestContext.
+[Fri Apr 08 20:09:29.552592 2016] [wsgi:error] [pid 384:tid 140290293044992]   return HttpResponse(template.render(context))
+[Fri Apr 08 20:09:29.552604 2016] [wsgi:error] [pid 384:tid 140290293044992] 
+[Fri Apr 08 20:09:29.999236 2016] [authz_core:error] [pid 387:tid 140290102875904] [client 66.249.93.148:58568] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico
+[Sat Apr 09 02:49:38.207830 2016] [wsgi:error] [pid 386:tid 140290293044992] Not Found: /irj/portal
+[Sat Apr 09 06:14:53.021099 2016] [wsgi:error] [pid 382:tid 140290293044992] /app/kmine/kmine_cloud/landing/views.py:21: RemovedInDjango110Warning: render() must be called with a dict, not a RequestContext.
+[Sat Apr 09 06:14:53.021170 2016] [wsgi:error] [pid 382:tid 140290293044992]   return HttpResponse(template.render(context))
+[Sat Apr 09 06:14:53.021183 2016] [wsgi:error] [pid 382:tid 140290293044992] 
+[Sat Apr 09 17:26:38.898827 2016] [wsgi:error] [pid 384:tid 140290293044992] Not Found: /testproxy.php
+[Sat Apr 09 19:55:18.970965 2016] [wsgi:error] [pid 382:tid 140290293044992] Not Found: /CHANGELOG.txt
+[Sat Apr 09 19:55:19.724880 2016] [wsgi:error] [pid 383:tid 140290293044992] Not Found: /joomla.xml
+[Sat Apr 09 19:55:21.469131 2016] [wsgi:error] [pid 384:tid 140290293044992] Not Found: /administrator/manifests/libraries/joomla.xml
+[Sat Apr 09 19:55:29.845624 2016] [wsgi:error] [pid 382:tid 140290293044992] Not Found: /readme.html
+[Sun Apr 10 12:28:20.795835 2016] [wsgi:error] [pid 386:tid 140290293044992] Not Found: /testproxy.php
+[Sun Apr 10 20:51:31.356011 2016] [authz_core:error] [pid 495:tid 140290165815040] [client 66.249.93.154:38966] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico
+[Sun Apr 10 22:07:24.755247 2016] [wsgi:error] [pid 14245:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:6: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agencies).
+[Sun Apr 10 22:07:24.755379 2016] [wsgi:error] [pid 14245:tid 139868500203264]   reverse("IRM.views.list_agencies")))
+[Sun Apr 10 22:07:24.755392 2016] [wsgi:error] [pid 14245:tid 139868500203264] 
+[Sun Apr 10 22:07:24.756263 2016] [wsgi:error] [pid 14245:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:10: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency).
+[Sun Apr 10 22:07:24.756286 2016] [wsgi:error] [pid 14245:tid 139868500203264]   reverse("IRM.views.add_agency")))
+[Sun Apr 10 22:07:24.756297 2016] [wsgi:error] [pid 14245:tid 139868500203264] 
+[Sun Apr 10 22:07:24.756832 2016] [wsgi:error] [pid 14245:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:13: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency_admin).
+[Sun Apr 10 22:07:24.756858 2016] [wsgi:error] [pid 14245:tid 139868500203264]   reverse("IRM.views.add_agency_admin")))
+[Sun Apr 10 22:07:24.756869 2016] [wsgi:error] [pid 14245:tid 139868500203264] 
+[Sun Apr 10 22:07:24.757438 2016] [wsgi:error] [pid 14245:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:16: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agency_admins).
+[Sun Apr 10 22:07:24.757460 2016] [wsgi:error] [pid 14245:tid 139868500203264]   reverse("IRM.views.list_agency_admins")))
+[Sun Apr 10 22:07:24.757471 2016] [wsgi:error] [pid 14245:tid 139868500203264] 
+[Sun Apr 10 22:07:24.758026 2016] [wsgi:error] [pid 14245:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:20: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_panel_members).
+[Sun Apr 10 22:07:24.758048 2016] [wsgi:error] [pid 14245:tid 139868500203264]   reverse("IRM.views.list_panel_members")))
+[Sun Apr 10 22:07:24.758059 2016] [wsgi:error] [pid 14245:tid 139868500203264] 
+[Sun Apr 10 22:07:24.758613 2016] [wsgi:error] [pid 14245:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:23: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_panel_member).
+[Sun Apr 10 22:07:24.759454 2016] [wsgi:error] [pid 14245:tid 139868500203264]   reverse("IRM.views.add_panel_member")))
+[Sun Apr 10 22:07:24.759469 2016] [wsgi:error] [pid 14245:tid 139868500203264] 
+[Sun Apr 10 22:07:27.463463 2016] [wsgi:error] [pid 14244:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:6: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agencies).
+[Sun Apr 10 22:07:27.463615 2016] [wsgi:error] [pid 14244:tid 139868500203264]   reverse("IRM.views.list_agencies")))
+[Sun Apr 10 22:07:27.463627 2016] [wsgi:error] [pid 14244:tid 139868500203264] 
+[Sun Apr 10 22:07:27.464519 2016] [wsgi:error] [pid 14244:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:10: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency).
+[Sun Apr 10 22:07:27.464542 2016] [wsgi:error] [pid 14244:tid 139868500203264]   reverse("IRM.views.add_agency")))
+[Sun Apr 10 22:07:27.464554 2016] [wsgi:error] [pid 14244:tid 139868500203264] 
+[Sun Apr 10 22:07:27.465089 2016] [wsgi:error] [pid 14244:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:13: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency_admin).
+[Sun Apr 10 22:07:27.465111 2016] [wsgi:error] [pid 14244:tid 139868500203264]   reverse("IRM.views.add_agency_admin")))
+[Sun Apr 10 22:07:27.465122 2016] [wsgi:error] [pid 14244:tid 139868500203264] 
+[Sun Apr 10 22:07:27.465669 2016] [wsgi:error] [pid 14244:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:16: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agency_admins).
+[Sun Apr 10 22:07:27.465691 2016] [wsgi:error] [pid 14244:tid 139868500203264]   reverse("IRM.views.list_agency_admins")))
+[Sun Apr 10 22:07:27.465702 2016] [wsgi:error] [pid 14244:tid 139868500203264] 
+[Sun Apr 10 22:07:27.466279 2016] [wsgi:error] [pid 14244:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:20: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_panel_members).
+[Sun Apr 10 22:07:27.466301 2016] [wsgi:error] [pid 14244:tid 139868500203264]   reverse("IRM.views.list_panel_members")))
+[Sun Apr 10 22:07:27.466312 2016] [wsgi:error] [pid 14244:tid 139868500203264] 
+[Sun Apr 10 22:07:27.466847 2016] [wsgi:error] [pid 14244:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:23: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_panel_member).
+[Sun Apr 10 22:07:27.466869 2016] [wsgi:error] [pid 14244:tid 139868500203264]   reverse("IRM.views.add_panel_member")))
+[Sun Apr 10 22:07:27.466880 2016] [wsgi:error] [pid 14244:tid 139868500203264] 
+[Sun Apr 10 22:07:30.738763 2016] [wsgi:error] [pid 14246:tid 139868500203264] Not Found: /IRM/list_agencies/favicon.ico

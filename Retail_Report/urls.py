@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from Retail_Report import views
 from django.contrib.auth.decorators import login_required
 
-urlpatterns = patterns('',
+urlpatterns = [
 			url(r'^$', login_required(views.default,login_url='/kmine_auth/login/'), name='index'),
 			url(r'^(?i)update/', login_required(views.default,login_url='/kmine_auth/login/'), name='Transaction'),
 			url(r'^(?i)Monthly_Update/', login_required(views.Monthly_Update,login_url='/kmine_auth/login/'), name='Monthly_Update'),
@@ -18,5 +18,5 @@ urlpatterns = patterns('',
 			url(r'^(?i)Custom_sales_report_Audit/', login_required(views.Custom_sales_report_Auditor,login_url='/kmine_auth/login/'), name='Custom_sales_report_Auditor'),
 			url(r'^(?i)get_events$', login_required(views.get_events,login_url='/kmine_auth/login/'), name='get_events'),
 			url(r'^(?i)remove_event$',login_required(views.remove_event,login_url='/kmine_auth/login/'), name='remove_event'),
-			url(r'^(?i)create_event/',login_required( views.create_event,login_url='/kmine_auth/login/'),name='create_event'),			
-		)
+			url(r'^(?i)create_event/',login_required(views.create_event,login_url='/kmine_auth/login/'),name='create_event'),			
+			]

@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'landing',
     'events',
     'form_wizard',
-    'IRM'
+    'menu',
+    'IRM',
 
 ]
 
@@ -60,6 +61,9 @@ MIDDLEWARE_CLASSES = [
     #'kmine_cloud.current_user.CurrentUserMiddleware',
 ]
 
+LOGIN_URL = '/kmine_auth/login/'
+
+
 ROOT_URLCONF = 'kmine_cloud.urls'
 
 TEMPLATES = [
@@ -73,6 +77,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+		'django.template.context_processors.request',
             ],
         },
     },

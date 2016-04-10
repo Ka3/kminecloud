@@ -8,7 +8,7 @@ from form_wizard import views
 
 
 
-urlpatterns = patterns('',
+urlpatterns = [
             url(r'^$', ContactWizard.as_view([ContactForm1, ContactForm2, ContactForm3, ContactForm4]) ),
             url(r'^(?i)profile/(?P<Record_id>[\w\d\ \-]+)$', views.Profile,name='profile view'),         
-        ) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+        ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

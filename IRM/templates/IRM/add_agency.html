@@ -15,10 +15,18 @@
 	
 	<link rel="stylesheet" href="/static/assets_u/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
 	<link rel="stylesheet" href="/static/assets_u/plugins/line-icons/line-icons.css">
-		<link rel="stylesheet" href="/static/assets_u/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
 	<link rel="stylesheet" href="/static/assets_u/plugins/owl-carousel/owl-carousel/owl.carousel.css">
 	<link rel="stylesheet" href="/static/assets_u/plugins/fancybox/source/jquery.fancybox.css">
 	<!--[if lt IE 9]><link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/css/sky-forms-ie8.css"><![endif]-->
+
+<style>
+
+
+
+
+
+</style>
 
 {% endblock Style_sheets %}
 
@@ -99,14 +107,23 @@
 					<!-- Order Form -->
 					<form action="/irm/{{Form_method}}" method="post" id="sky-form3" class="sky-form">
 					{% csrf_token %} 
-						<header>Add Agency </header>
+						<header>{{ Form_Title }} </header>
 						<fieldset>
 							
 							<div class="row">
 								{% for ind_form in forms %}
-								<section class="col col-6">
+								
+								{% if ind_form|fieldtype == 'Textarea' %}
+									<section class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								{% else %}
+									<section class="col col-lg-6 col-md-12 col-sm-10 col-xs-10">
+								{% endif %}
 									<div class="row">
-										<label for="{{ind_form.id_for_label}}" class="label col col-4">{{ind_form.label}}</label>
+										{% if ind_form|fieldtype == 'Textarea' %}	
+											<label for="{{ind_form.id_for_label}}" class="label col col-2">{{ind_form.label}}</label>
+										{% else %}
+											<label for="{{ind_form.id_for_label}}" class="label col col-4">{{ind_form.label}}</label>
+										{% endif %}
 										<div class="col col-8">
 											<label class="{{ind_form|field_label}}">
 												{{ind_form}} 
