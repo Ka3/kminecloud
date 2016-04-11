@@ -932,3 +932,6 @@
 [Sun Apr 10 22:07:27.466869 2016] [wsgi:error] [pid 14244:tid 139868500203264]   reverse("IRM.views.add_panel_member")))
 [Sun Apr 10 22:07:27.466880 2016] [wsgi:error] [pid 14244:tid 139868500203264] 
 [Sun Apr 10 22:07:30.738763 2016] [wsgi:error] [pid 14246:tid 139868500203264] Not Found: /IRM/list_agencies/favicon.ico
+[Sun Apr 10 22:42:48.693714 2016] [wsgi:error] [pid 14248:tid 139868500203264] /app/kmine/kmine_cloud/landing/views.py:21: RemovedInDjango110Warning: render() must be called with a dict, not a RequestContext.
+[Sun Apr 10 22:42:48.693865 2016] [wsgi:error] [pid 14248:tid 139868500203264]   return HttpResponse(template.render(context))
+[Sun Apr 10 22:42:48.693878 2016] [wsgi:error] [pid 14248:tid 139868500203264] 

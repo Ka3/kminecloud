@@ -96,13 +96,14 @@ class IRM_Agency(models.Model):
     Notes = models.TextField(max_length=2000,blank=True, null=True, help_text='Notes')
     To_Delete = models.BooleanField(default=False)
     Modified_by =  models.CharField(max_length=100,blank=True,null=True)
-    Created_by = models.CharField(max_length=100,blank=True,null=True,editable=False)
+    Created_by = models.CharField(max_length=100,blank=True,null=True)
     created = models.DateTimeField()
     modified = models.DateTimeField()
     
     def save(self, *args, **kwargs):
             if not self.id:
                 self.created = timezone.now()
+                self.Created_by = self.Modified_by
             self.modified = timezone.now()
             return super(IRM_Agency, self).save(*args, **kwargs)
 
@@ -129,13 +130,14 @@ class IRM_Agency_Admin_Contact(models.Model):
     Role = models.CharField(max_length=50, choices=Contact_Role,help_text='Role Type')
     Notes = models.TextField(max_length=1000, blank=True, null=True,help_text='Short Notes about Agency')
     Modified_by =  models.CharField(max_length=100,blank=True,null=True)
-    Created_by = models.CharField(max_length=100,blank=True,null=True,editable=False)
+    Created_by = models.CharField(max_length=100,blank=True,null=True)
     created = models.DateTimeField()
     modified = models.DateTimeField()
     
     def save(self, *args, **kwargs):
             if not self.id:
                 self.created = timezone.now()
+                self.Created_by = self.Modified_by
             self.modified = timezone.now()
             return super(IRM_Agency_Admin_Contact, self).save(*args, **kwargs)
 
@@ -145,30 +147,6 @@ class IRM_PanelContactRole(models.Model):
     Role = models.CharField(max_length=100, help_text='Role')
     ContactType = models.ChoiceField(max_length=20, choices=ContactType_Choices  ,help_text='Contact Type')
     
-
-    
-
-
-class IRM_Agency_Admin_Contact(models.Model):
-    AgencyAdminContactID = models.IntegerField(auto_increment=True)
-    AgencyID_FK = models.Foreignkey(IRM_Agency)
-    Title = models.OneToOneField(IRM_Title)
-    Firstname =  models.CharField(max_length=100, help_text='First name of Agency Admin')
-    Surname = models.CharField(max_length=100, help_text='Surname of Agency Admin')
-    Position = models.CharField(max_length=100, help_text='Position(Designation) in the Agency')
-    Address_Line_1 = models.CharField(max_length=200, help_text='Placeholder')
-    Address_Line_2 = models.CharField(max_length=200, blank=True, null=True,  help_text='Placeholder')
-    Address_Line_3 = models.CharField(max_length=200, blank=True, null=True,  help_text='Placeholder')
-    Address_Line_4 = models.CharField(max_length=200, blank=True, null=True,  help_text='Placeholder')
-    Town = models.CharField(max_length=200, blank=True, null=True,  help_text='Town')
-    County = models.CharField(max_length=200, blank=True, null=True,  help_text='County')
-    Postcode = models.CharField(max_length=200,  help_text='UK Postcode')
-    Phone = models.CharField(max_length=200,  help_text='Phone Number')
-    Mobile = models.CharField(max_length=200,  help_text='Mobile Number')
-    Email = models.EmailField()
-    Fax = models.IntegerField(max_length=200,  help_text='Mobile Number')
-    Role = models.ChoiceField(max_length=50, choices=Contact_Role  ,help_text='Role Type')
-    Notes = models.ChoiceField(max_length=500, blank=True, null=True,help_text='Short Notes about Agency')
 
 
 class IRM_Case(models.Model):
@@ -264,6 +242,13 @@ class IRM_PanelContact(models.Model):
     Title = models.OneToOneField(IRM_Title)
     Firstname = models.CharField(max_length=100)
     Surname = models.CharField(max_length=100)
+    Gender = models.ChoiceField(max_length=100,choices=Gender_Choices)
+    Ethnicity = models.Foreignkey(IRM_Ethinicity)
+    Participant_Type = models.CharField(blank=True,null=True)
+    Panel_Role = models.ForeignKey(Panel_Role)
+    Position = models.CharField(max_length=50,blank=True,null=True)
+    
+    
     Home_Address_Line_1 = models.CharField(max_length=100)
     Home_Address_Line_2 = models.CharField(max_length=100,blank=True,null=True)
     Home_Address_Line_3 = models.CharField(max_length=100,blank=True,null=True)
@@ -285,15 +270,10 @@ class IRM_PanelContact(models.Model):
     Mobile = models.CharField(max_length=40,blank=True,null=True)
     Email = models.EmailField(max_length=40,blank=True,null=True)
     Fax = models.CharField(max_length=40,blank=True,null=True)
+    
     Appointment_Date = models.DateField()
-    Gender = models.ChoiceField(max_length=100,choices=Gender_Choices)
-    Ethnicity = models.Foreignkey(IRM_Ethinicity)
-    Participant_Type = models.CharField(blank=True,null=True)
-    Panel_Role = models.ForeignKey(Panel_Role)
     Notes = models.CharField(max_lengh=200,blank=True,null=True)
     Status = models.ChoiceField(max_length=50,choices=Status_Choices)
-    Position = models.CharField(max_length=50,blank=True,null=True)
-    DOB = models.DateField(blank=True,null=True)
     To_Delete = models.Choicefield(max_length=10,choices=Yes_No_Choices)
     Availability = models.CharField(max_length=100,blank=True,null=True)
 

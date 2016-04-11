@@ -24,11 +24,14 @@ def add_agency(request):
     if request.method == 'POST':
         forms = Add_agency_Form(request.POST)
         if forms.is_valid():
-            forms.Modified_by = str(request.user)
-            forms.save()
+            form_tmp = forms.save(commit=False)
+            print 'request.user : ',request.user
+            form_tmp.Modified_by = str(request.user)
+            #import ipdb; ipdb.set_trace()
+            form_tmp.save()
             notify['level']   = 'success'
             notify['Message'] ='Agency Created Successfully'            
-            forms = Add_agency_Form(user=request.user)
+            forms = Add_agency_Form()
         else:
             notify['level']   = 'warning'
             notify['Message'] = 'Error Please Correct the below Errors'
@@ -49,8 +52,10 @@ def edit_agency(request,Record_id):
         instance = IRM_Agency.objects.get(id=Record_id)
         forms = Add_agency_Form(request.POST or None, instance=instance)
         if forms.is_valid():
-            forms.Modified_by = str(request.user)
-            forms.save()
+            form_tmp = forms.save(commit=False)
+            print 'request.user : ',request.user
+            form_tmp.Modified_by = str(request.user)
+            form_tmp.save()
             notify['level']   = 'success'
             notify['Message'] ='Agency Details Updated Successfully'
             return HttpResponseRedirect('/IRM/list_agencies')        
@@ -96,11 +101,11 @@ def add_agency_admin(request):
     if request.method == 'POST':
         forms = Add_Agency_Admin_Form(request.POST)
         if forms.is_valid():
-            forms.Modified_by = str(request.user)
-            forms.save()
-            notify['level']   = 'success'
-            notify['Message'] ='Agency Admin Contact added Successfully'            
-            forms = Add_Agency_Admin_Form(user=request.user)
+            form_tmp = forms.save(commit=False)
+            print 'request.user : ',request.user
+            form_tmp.Modified_by = str(request.user)
+            form_tmp.save()
+            forms = Add_Agency_Admin_Form()
         else:
             notify['level']   = 'warning'
             notify['Message'] = 'Error Please Correct the below Errors'
@@ -117,14 +122,14 @@ def edit_agency_contact(request,Record_id):
         instance = IRM_Agency_Admin_Contact.objects.get(id=Record_id)
         forms = Add_Agency_Admin_Form(request.POST or None, instance=instance)
         if forms.is_valid():
-            forms.Modified_by = str(request.user)
-            forms.save()
+            form_tmp = forms.save(commit=False)
+            print 'request.user : ',request.user
+            form_tmp.Modified_by = str(request.user)
+            form_tmp.save()
             notify['level']   = 'success'
             notify['Message'] ='Contact Details Updated Successfully'
             return HttpResponseRedirect('/IRM/list_agency_admins')        
-            
-        
-    
+
     else:
         agency_detail= IRM_Agency_Admin_Contact.objects.get(pk=Record_id)
         forms = Add_Agency_Admin_Form(instance=agency_detail)
