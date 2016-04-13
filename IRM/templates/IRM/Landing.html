@@ -1,0 +1,100 @@
+{% extends "unify/__table_view.html" %}
+
+{% load form_custom %}
+{% load i18n %}
+
+{% block Style_sheets %} .
+	
+{% endblock Style_sheets %}
+
+
+{% block Java_Scripts %}
+<script type="text/javascript" src="/static/assets_u/plugins/counter/waypoints.min.js"></script>
+<script type="text/javascript" src="/static/assets_u/plugins/counter/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="/static/assets_u/js/app.js"></script>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+			App.init();
+			App.initCounter();
+		});
+</script>
+{% endblock %}
+
+
+{% block Content %}
+
+<div class="row">
+
+<div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+{% block Form %}
+
+						<!-- Counters -->
+						<div class="main-counters margin-bottom-30">
+							<div class="headline"><h2>Case Information</h2></div>
+							<div class="row margin-bottom-40">
+								<div class="counters col-md-3 col-sm-3">
+									<span class="counter">{{ Pay_load.Agency_list }}</span>
+									<h4>Agencies</h4>
+								</div>
+								<div class="counters col-md-3 col-sm-3">
+									<span class="counter">{{ Pay_load.Agency_admins }}</span>
+									<h4>Agency Admins</h4>
+								</div>
+								<div class="counters col-md-3 col-sm-3">
+									<span class="counter">{{ Pay_load.Panel_admins }}</span>
+									<h4>Panel Admins</h4>
+								</div>
+								<div class="counters col-md-3 col-sm-3">
+									<span class="counter">{{ Pay_load.Panel_members }}</span>
+									<h4>Panel Members</h4>
+								</div>
+							</div>
+						
+							<div class="headline"><h2>Agencies Information</h2></div>
+
+							<div class="row margin-bottom-40">
+								<div class="counters col-md-3 col-sm-3">
+									<span class="counter">{{ Pay_load.Total_Cases }}</span>
+									<h4>Cases</h4>
+								</div>
+								<div class="counters col-md-3 col-sm-3">
+									<span class="counter">{{ Pay_load.Open_Cases }}</span>
+									<h4>Open Cases</h4>
+								</div>
+
+							</div>
+							
+
+							
+							
+							<!-- 
+							<div class="margin-bottom-50"><hr></div>
+
+							<div class="row">
+								<div class="counters col-md-3 col-sm-3">
+									<span class="counter-icon"><i class="fa fa-gift rounded"></i></span>
+									<span class="counter">3254</span>
+								</div>
+								<div class="counters col-md-3 col-sm-3">
+									<span class="counter-icon"><i class="fa fa-coffee rounded"></i></span>
+									<span class="counter">7068</span>
+								</div>
+								<div class="counters col-md-3 col-sm-3">
+									<span class="counter-icon"><i class="fa fa-thumbs-up rounded"></i></span>
+									<span class="counter">5389</span>
+								</div>
+								<div class="counters col-md-3 col-sm-3">
+									<span class="counter-icon"><i class="fa fa-comments rounded"></i></span>
+									<span class="counter">9172</span>
+								</div>
+							</div>
+							 -->
+						</div>
+						<!-- End Counters -->
+
+{% endblock Form %}
+</div>
+
+</div>
+{% endblock Content %}

@@ -935,3 +935,247 @@
 [Sun Apr 10 22:42:48.693714 2016] [wsgi:error] [pid 14248:tid 139868500203264] /app/kmine/kmine_cloud/landing/views.py:21: RemovedInDjango110Warning: render() must be called with a dict, not a RequestContext.
 [Sun Apr 10 22:42:48.693865 2016] [wsgi:error] [pid 14248:tid 139868500203264]   return HttpResponse(template.render(context))
 [Sun Apr 10 22:42:48.693878 2016] [wsgi:error] [pid 14248:tid 139868500203264] 
+[Mon Apr 11 08:44:15.015693 2016] [wsgi:error] [pid 14247:tid 139868500203264] Not Found: /testproxy.php
+[Mon Apr 11 11:02:30.241048 2016] [wsgi:error] [pid 14245:tid 139868500203264] /app/kmine/kmine_cloud/landing/views.py:21: RemovedInDjango110Warning: render() must be called with a dict, not a RequestContext.
+[Mon Apr 11 11:02:30.241122 2016] [wsgi:error] [pid 14245:tid 139868500203264]   return HttpResponse(template.render(context))
+[Mon Apr 11 11:02:30.241151 2016] [wsgi:error] [pid 14245:tid 139868500203264] 
+[Mon Apr 11 11:02:32.374111 2016] [authz_core:error] [pid 14249:tid 139868510693120] [client 109.156.162.182:63941] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/
+[Mon Apr 11 11:02:38.896831 2016] [wsgi:error] [pid 14244:tid 139868500203264] Not Found: /irm
+[Mon Apr 11 11:02:40.307159 2016] [authz_core:error] [pid 14251:tid 139868397094656] [client 109.156.162.182:63945] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/kmine_auth/login/?next=/irm/
+[Mon Apr 11 11:02:49.745695 2016] [wsgi:error] [pid 14247:tid 139868500203264] authenticated
+[Mon Apr 11 11:02:49.747424 2016] [wsgi:error] [pid 14247:tid 139868500203264] /irm/
+[Mon Apr 11 11:02:50.068154 2016] [wsgi:error] [pid 14245:tid 139868500203264] Internal Server Error: /irm/
+[Mon Apr 11 11:02:50.068198 2016] [wsgi:error] [pid 14245:tid 139868500203264] Traceback (most recent call last):
+[Mon Apr 11 11:02:50.068210 2016] [wsgi:error] [pid 14245:tid 139868500203264]   File "/app/kmine/lib/python2.7/site-packages/django/core/handlers/base.py", line 158, in get_response
+[Mon Apr 11 11:02:50.068221 2016] [wsgi:error] [pid 14245:tid 139868500203264]     % (callback.__module__, view_name))
+[Mon Apr 11 11:02:50.068232 2016] [wsgi:error] [pid 14245:tid 139868500203264] ValueError: The view IRM.views.Landing didn't return an HttpResponse object. It returned None instead.
+[Mon Apr 11 11:02:50.680642 2016] [authz_core:error] [pid 14250:tid 139868239746816] [client 109.156.162.182:63947] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/irm/
+[Mon Apr 11 11:03:01.785565 2016] [wsgi:error] [pid 14244:tid 139868500203264] Not Found: /irm/add_agency
+[Mon Apr 11 11:03:01.970586 2016] [wsgi:error] [pid 14246:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:6: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agencies).
+[Mon Apr 11 11:03:01.970631 2016] [wsgi:error] [pid 14246:tid 139868500203264]   reverse("IRM.views.list_agencies")))
+[Mon Apr 11 11:03:01.970643 2016] [wsgi:error] [pid 14246:tid 139868500203264] 
+[Mon Apr 11 11:03:01.971376 2016] [wsgi:error] [pid 14246:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:10: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency).
+[Mon Apr 11 11:03:01.971399 2016] [wsgi:error] [pid 14246:tid 139868500203264]   reverse("IRM.views.add_agency")))
+[Mon Apr 11 11:03:01.971411 2016] [wsgi:error] [pid 14246:tid 139868500203264] 
+[Mon Apr 11 11:03:01.971923 2016] [wsgi:error] [pid 14246:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:13: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency_admin).
+[Mon Apr 11 11:03:01.971944 2016] [wsgi:error] [pid 14246:tid 139868500203264]   reverse("IRM.views.add_agency_admin")))
+[Mon Apr 11 11:03:01.971955 2016] [wsgi:error] [pid 14246:tid 139868500203264] 
+[Mon Apr 11 11:03:01.972550 2016] [wsgi:error] [pid 14246:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:16: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agency_admins).
+[Mon Apr 11 11:03:01.972572 2016] [wsgi:error] [pid 14246:tid 139868500203264]   reverse("IRM.views.list_agency_admins")))
+[Mon Apr 11 11:03:01.972583 2016] [wsgi:error] [pid 14246:tid 139868500203264] 
+[Mon Apr 11 11:03:01.973137 2016] [wsgi:error] [pid 14246:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:20: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_panel_members).
+[Mon Apr 11 11:03:01.973159 2016] [wsgi:error] [pid 14246:tid 139868500203264]   reverse("IRM.views.list_panel_members")))
+[Mon Apr 11 11:03:01.973190 2016] [wsgi:error] [pid 14246:tid 139868500203264] 
+[Mon Apr 11 11:03:01.973728 2016] [wsgi:error] [pid 14246:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:23: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_panel_member).
+[Mon Apr 11 11:03:01.973749 2016] [wsgi:error] [pid 14246:tid 139868500203264]   reverse("IRM.views.add_panel_member")))
+[Mon Apr 11 11:03:01.973760 2016] [wsgi:error] [pid 14246:tid 139868500203264] 
+[Mon Apr 11 11:03:03.439459 2016] [wsgi:error] [pid 14248:tid 139868500203264] Not Found: /irm/add_agency/favicon.ico
+[Mon Apr 11 11:03:29.553900 2016] [wsgi:error] [pid 14247:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:6: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agencies).
+[Mon Apr 11 11:03:29.553996 2016] [wsgi:error] [pid 14247:tid 139868500203264]   reverse("IRM.views.list_agencies")))
+[Mon Apr 11 11:03:29.554016 2016] [wsgi:error] [pid 14247:tid 139868500203264] 
+[Mon Apr 11 11:03:29.555209 2016] [wsgi:error] [pid 14247:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:10: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency).
+[Mon Apr 11 11:03:29.555239 2016] [wsgi:error] [pid 14247:tid 139868500203264]   reverse("IRM.views.add_agency")))
+[Mon Apr 11 11:03:29.555258 2016] [wsgi:error] [pid 14247:tid 139868500203264] 
+[Mon Apr 11 11:03:29.556118 2016] [wsgi:error] [pid 14247:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:13: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency_admin).
+[Mon Apr 11 11:03:29.556147 2016] [wsgi:error] [pid 14247:tid 139868500203264]   reverse("IRM.views.add_agency_admin")))
+[Mon Apr 11 11:03:29.556234 2016] [wsgi:error] [pid 14247:tid 139868500203264] 
+[Mon Apr 11 11:03:29.556901 2016] [wsgi:error] [pid 14247:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:16: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agency_admins).
+[Mon Apr 11 11:03:29.556925 2016] [wsgi:error] [pid 14247:tid 139868500203264]   reverse("IRM.views.list_agency_admins")))
+[Mon Apr 11 11:03:29.556937 2016] [wsgi:error] [pid 14247:tid 139868500203264] 
+[Mon Apr 11 11:03:29.557848 2016] [wsgi:error] [pid 14247:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:20: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_panel_members).
+[Mon Apr 11 11:03:29.557877 2016] [wsgi:error] [pid 14247:tid 139868500203264]   reverse("IRM.views.list_panel_members")))
+[Mon Apr 11 11:03:29.557894 2016] [wsgi:error] [pid 14247:tid 139868500203264] 
+[Mon Apr 11 11:03:29.558849 2016] [wsgi:error] [pid 14247:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:23: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_panel_member).
+[Mon Apr 11 11:03:29.558907 2016] [wsgi:error] [pid 14247:tid 139868500203264]   reverse("IRM.views.add_panel_member")))
+[Mon Apr 11 11:03:29.558922 2016] [wsgi:error] [pid 14247:tid 139868500203264] 
+[Mon Apr 11 11:03:30.162796 2016] [wsgi:error] [pid 14245:tid 139868500203264] Not Found: /IRM/list_agencies/favicon.ico
+[Mon Apr 11 11:03:36.600694 2016] [wsgi:error] [pid 14246:tid 139868500203264] Not Found: /IRM/list_agency_admins/favicon.ico
+[Mon Apr 11 11:04:48.326371 2016] [authz_core:error] [pid 14249:tid 139868334155520] [client 109.156.162.182:63971] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico
+[Mon Apr 11 13:01:19.139259 2016] [wsgi:error] [pid 14248:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:6: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agencies).
+[Mon Apr 11 13:01:19.139326 2016] [wsgi:error] [pid 14248:tid 139868500203264]   reverse("IRM.views.list_agencies")))
+[Mon Apr 11 13:01:19.139338 2016] [wsgi:error] [pid 14248:tid 139868500203264] 
+[Mon Apr 11 13:01:19.140059 2016] [wsgi:error] [pid 14248:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:10: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency).
+[Mon Apr 11 13:01:19.140082 2016] [wsgi:error] [pid 14248:tid 139868500203264]   reverse("IRM.views.add_agency")))
+[Mon Apr 11 13:01:19.140093 2016] [wsgi:error] [pid 14248:tid 139868500203264] 
+[Mon Apr 11 13:01:19.140619 2016] [wsgi:error] [pid 14248:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:13: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency_admin).
+[Mon Apr 11 13:01:19.140669 2016] [wsgi:error] [pid 14248:tid 139868500203264]   reverse("IRM.views.add_agency_admin")))
+[Mon Apr 11 13:01:19.140681 2016] [wsgi:error] [pid 14248:tid 139868500203264] 
+[Mon Apr 11 13:01:19.141247 2016] [wsgi:error] [pid 14248:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:16: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agency_admins).
+[Mon Apr 11 13:01:19.141269 2016] [wsgi:error] [pid 14248:tid 139868500203264]   reverse("IRM.views.list_agency_admins")))
+[Mon Apr 11 13:01:19.141280 2016] [wsgi:error] [pid 14248:tid 139868500203264] 
+[Mon Apr 11 13:01:19.141855 2016] [wsgi:error] [pid 14248:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:20: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_panel_members).
+[Mon Apr 11 13:01:19.141877 2016] [wsgi:error] [pid 14248:tid 139868500203264]   reverse("IRM.views.list_panel_members")))
+[Mon Apr 11 13:01:19.141888 2016] [wsgi:error] [pid 14248:tid 139868500203264] 
+[Mon Apr 11 13:01:19.142444 2016] [wsgi:error] [pid 14248:tid 139868500203264] /app/kmine/kmine_cloud/IRM/menus.py:23: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_panel_member).
+[Mon Apr 11 13:01:19.142466 2016] [wsgi:error] [pid 14248:tid 139868500203264]   reverse("IRM.views.add_panel_member")))
+[Mon Apr 11 13:01:19.142477 2016] [wsgi:error] [pid 14248:tid 139868500203264] 
+[Mon Apr 11 13:01:34.662299 2016] [wsgi:error] [pid 14244:tid 139868500203264] Not Found: /irm/edit_agency_contact/favicon.ico
+[Mon Apr 11 15:00:11.831391 2016] [wsgi:error] [pid 14246:tid 139868500203264] /app/kmine/kmine_cloud/landing/views.py:21: RemovedInDjango110Warning: render() must be called with a dict, not a RequestContext.
+[Mon Apr 11 15:00:11.831457 2016] [wsgi:error] [pid 14246:tid 139868500203264]   return HttpResponse(template.render(context))
+[Mon Apr 11 15:00:11.831469 2016] [wsgi:error] [pid 14246:tid 139868500203264] 
+[Mon Apr 11 19:28:37.076450 2016] [wsgi:error] [pid 14247:tid 139868500203264] Not Found: /form_wizard
+[Mon Apr 11 19:28:37.377642 2016] [wsgi:error] [pid 14245:tid 139868500203264] 0
+[Mon Apr 11 19:28:37.377716 2016] [wsgi:error] [pid 14245:tid 139868500203264] <type 'unicode'>
+[Mon Apr 11 19:28:37.377753 2016] [wsgi:error] [pid 14245:tid 139868500203264] 0
+[Mon Apr 11 19:28:40.908384 2016] [wsgi:error] [pid 14244:tid 139868500203264] Not Found: /form_wizard/favicon.ico
+[Mon Apr 11 19:29:03.519461 2016] [wsgi:error] [pid 14246:tid 139868500203264] 1
+[Mon Apr 11 19:29:03.519545 2016] [wsgi:error] [pid 14246:tid 139868500203264] <type 'unicode'>
+[Mon Apr 11 19:29:03.519584 2016] [wsgi:error] [pid 14246:tid 139868500203264] 1
+[Mon Apr 11 19:29:42.197607 2016] [wsgi:error] [pid 14245:tid 139868500203264] 2
+[Mon Apr 11 19:29:42.197696 2016] [wsgi:error] [pid 14245:tid 139868500203264] <type 'unicode'>
+[Mon Apr 11 19:29:42.197734 2016] [wsgi:error] [pid 14245:tid 139868500203264] 2
+[Mon Apr 11 19:30:05.334735 2016] [wsgi:error] [pid 14244:tid 139868500203264] This is Step4
+[Mon Apr 11 19:30:05.345006 2016] [wsgi:error] [pid 14244:tid 139868500203264] 3
+[Mon Apr 11 19:30:05.345051 2016] [wsgi:error] [pid 14244:tid 139868500203264] <type 'unicode'>
+[Mon Apr 11 19:30:05.345083 2016] [wsgi:error] [pid 14244:tid 139868500203264] step 4
+[Mon Apr 11 19:30:06.055116 2016] [wsgi:error] [pid 14246:tid 139868500203264] Not Found: /form_wizard/assets/img/team/img32-md.jpg
+[Mon Apr 11 19:30:12.098496 2016] [wsgi:error] [pid 14248:tid 139868500203264] Calling Processing Form Data
+[Mon Apr 11 19:30:13.741529 2016] [wsgi:error] [pid 14247:tid 139868500203264] Sara Sarav
+[Mon Apr 11 19:30:14.638628 2016] [wsgi:error] [pid 14245:tid 139868500203264] Not Found: /form_wizard/profile/favicon.ico
+[Mon Apr 11 19:34:41.102933 2016] [wsgi:error] [pid 14244:tid 139868500203264] 0
+[Mon Apr 11 19:34:41.103023 2016] [wsgi:error] [pid 14244:tid 139868500203264] <type 'unicode'>
+[Mon Apr 11 19:34:41.103061 2016] [wsgi:error] [pid 14244:tid 139868500203264] 0
+[Mon Apr 11 19:34:49.844198 2016] [wsgi:error] [pid 14246:tid 139868500203264] 0
+[Mon Apr 11 19:34:49.844297 2016] [wsgi:error] [pid 14246:tid 139868500203264] <type 'unicode'>
+[Mon Apr 11 19:34:49.844337 2016] [wsgi:error] [pid 14246:tid 139868500203264] 0
+[Mon Apr 11 19:51:07.566447 2016] [authz_core:error] [pid 14250:tid 139868323665664] [client 66.249.93.21:36968] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico
+[Mon Apr 11 20:12:25.561392 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /irm/add_panel_member
+[Mon Apr 11 20:12:29.983383 2016] [authz_core:error] [pid 9546:tid 140491848931072] [client 176.251.183.48:54432] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/kmine_auth/login/?next=/irm/add_panel_member/
+[Mon Apr 11 20:13:03.410129 2016] [authz_core:error] [pid 9647:tid 140491848931072] [client 176.251.183.48:54446] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/kmine_auth/auth/
+[Mon Apr 11 20:13:18.673598 2016] [wsgi:error] [pid 9543:tid 140491991799552] authenticated
+[Mon Apr 11 20:13:18.675519 2016] [wsgi:error] [pid 9543:tid 140491991799552] /home
+[Mon Apr 11 20:13:18.932506 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /home
+[Mon Apr 11 20:13:19.225044 2016] [wsgi:error] [pid 9540:tid 140491991799552] /app/kmine/kmine_cloud/landing/views.py:21: RemovedInDjango110Warning: render() must be called with a dict, not a RequestContext.
+[Mon Apr 11 20:13:19.225201 2016] [wsgi:error] [pid 9540:tid 140491991799552]   return HttpResponse(template.render(context))
+[Mon Apr 11 20:13:19.225253 2016] [wsgi:error] [pid 9540:tid 140491991799552] 
+[Mon Apr 11 20:13:21.659295 2016] [authz_core:error] [pid 9544:tid 140491848931072] [client 176.251.183.48:54456] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/home/
+[Mon Apr 11 20:13:34.391602 2016] [wsgi:error] [pid 9541:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:6: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agencies).
+[Mon Apr 11 20:13:34.391791 2016] [wsgi:error] [pid 9541:tid 140491991799552]   reverse("IRM.views.list_agencies")))
+[Mon Apr 11 20:13:34.391843 2016] [wsgi:error] [pid 9541:tid 140491991799552] 
+[Mon Apr 11 20:13:34.392921 2016] [wsgi:error] [pid 9541:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:10: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency).
+[Mon Apr 11 20:13:34.392990 2016] [wsgi:error] [pid 9541:tid 140491991799552]   reverse("IRM.views.add_agency")))
+[Mon Apr 11 20:13:34.393038 2016] [wsgi:error] [pid 9541:tid 140491991799552] 
+[Mon Apr 11 20:13:34.393753 2016] [wsgi:error] [pid 9541:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:13: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency_admin).
+[Mon Apr 11 20:13:34.393821 2016] [wsgi:error] [pid 9541:tid 140491991799552]   reverse("IRM.views.add_agency_admin")))
+[Mon Apr 11 20:13:34.393867 2016] [wsgi:error] [pid 9541:tid 140491991799552] 
+[Mon Apr 11 20:13:34.394619 2016] [wsgi:error] [pid 9541:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:16: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agency_admins).
+[Mon Apr 11 20:13:34.394686 2016] [wsgi:error] [pid 9541:tid 140491991799552]   reverse("IRM.views.list_agency_admins")))
+[Mon Apr 11 20:13:34.394733 2016] [wsgi:error] [pid 9541:tid 140491991799552] 
+[Mon Apr 11 20:13:34.395470 2016] [wsgi:error] [pid 9541:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:20: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_panel_members).
+[Mon Apr 11 20:13:34.395536 2016] [wsgi:error] [pid 9541:tid 140491991799552]   reverse("IRM.views.list_panel_members")))
+[Mon Apr 11 20:13:34.395582 2016] [wsgi:error] [pid 9541:tid 140491991799552] 
+[Mon Apr 11 20:13:36.821433 2016] [wsgi:error] [pid 9542:tid 140491991799552] Not Found: /IRM/list_agencies/favicon.ico
+[Mon Apr 11 20:14:00.334353 2016] [wsgi:error] [pid 9543:tid 140491991799552] Not Found: /IRM/add_panel_member
+[Mon Apr 11 20:14:00.564072 2016] [wsgi:error] [pid 9539:tid 140491991799552] current_step : 0
+[Mon Apr 11 20:14:00.600997 2016] [wsgi:error] [pid 9539:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:6: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agencies).
+[Mon Apr 11 20:14:00.601070 2016] [wsgi:error] [pid 9539:tid 140491991799552]   reverse("IRM.views.list_agencies")))
+[Mon Apr 11 20:14:00.601120 2016] [wsgi:error] [pid 9539:tid 140491991799552] 
+[Mon Apr 11 20:14:00.601989 2016] [wsgi:error] [pid 9539:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:10: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency).
+[Mon Apr 11 20:14:00.602058 2016] [wsgi:error] [pid 9539:tid 140491991799552]   reverse("IRM.views.add_agency")))
+[Mon Apr 11 20:14:00.602106 2016] [wsgi:error] [pid 9539:tid 140491991799552] 
+[Mon Apr 11 20:14:00.602782 2016] [wsgi:error] [pid 9539:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:13: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency_admin).
+[Mon Apr 11 20:14:00.602853 2016] [wsgi:error] [pid 9539:tid 140491991799552]   reverse("IRM.views.add_agency_admin")))
+[Mon Apr 11 20:14:00.602902 2016] [wsgi:error] [pid 9539:tid 140491991799552] 
+[Mon Apr 11 20:14:00.603683 2016] [wsgi:error] [pid 9539:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:16: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agency_admins).
+[Mon Apr 11 20:14:00.603751 2016] [wsgi:error] [pid 9539:tid 140491991799552]   reverse("IRM.views.list_agency_admins")))
+[Mon Apr 11 20:14:00.603797 2016] [wsgi:error] [pid 9539:tid 140491991799552] 
+[Mon Apr 11 20:14:00.604529 2016] [wsgi:error] [pid 9539:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:20: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_panel_members).
+[Mon Apr 11 20:14:00.604596 2016] [wsgi:error] [pid 9539:tid 140491991799552]   reverse("IRM.views.list_panel_members")))
+[Mon Apr 11 20:14:00.604642 2016] [wsgi:error] [pid 9539:tid 140491991799552] 
+[Mon Apr 11 20:14:01.685855 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /IRM/add_panel_member/favicon.ico
+[Mon Apr 11 20:14:21.267386 2016] [wsgi:error] [pid 9541:tid 140491991799552] current_step : 0
+[Mon Apr 11 20:14:22.780020 2016] [wsgi:error] [pid 9542:tid 140491991799552] current_step : 0
+[Mon Apr 11 20:14:22.815162 2016] [wsgi:error] [pid 9542:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:6: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agencies).
+[Mon Apr 11 20:14:22.815234 2016] [wsgi:error] [pid 9542:tid 140491991799552]   reverse("IRM.views.list_agencies")))
+[Mon Apr 11 20:14:22.815283 2016] [wsgi:error] [pid 9542:tid 140491991799552] 
+[Mon Apr 11 20:14:22.816024 2016] [wsgi:error] [pid 9542:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:10: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency).
+[Mon Apr 11 20:14:22.816094 2016] [wsgi:error] [pid 9542:tid 140491991799552]   reverse("IRM.views.add_agency")))
+[Mon Apr 11 20:14:22.816253 2016] [wsgi:error] [pid 9542:tid 140491991799552] 
+[Mon Apr 11 20:14:22.816839 2016] [wsgi:error] [pid 9542:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:13: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency_admin).
+[Mon Apr 11 20:14:22.816906 2016] [wsgi:error] [pid 9542:tid 140491991799552]   reverse("IRM.views.add_agency_admin")))
+[Mon Apr 11 20:14:22.816952 2016] [wsgi:error] [pid 9542:tid 140491991799552] 
+[Mon Apr 11 20:14:22.817717 2016] [wsgi:error] [pid 9542:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:16: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agency_admins).
+[Mon Apr 11 20:14:22.817785 2016] [wsgi:error] [pid 9542:tid 140491991799552]   reverse("IRM.views.list_agency_admins")))
+[Mon Apr 11 20:14:22.817866 2016] [wsgi:error] [pid 9542:tid 140491991799552] 
+[Mon Apr 11 20:14:22.818620 2016] [wsgi:error] [pid 9542:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:20: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_panel_members).
+[Mon Apr 11 20:14:22.818687 2016] [wsgi:error] [pid 9542:tid 140491991799552]   reverse("IRM.views.list_panel_members")))
+[Mon Apr 11 20:14:22.818734 2016] [wsgi:error] [pid 9542:tid 140491991799552] 
+[Mon Apr 11 20:14:43.036781 2016] [wsgi:error] [pid 9543:tid 140491991799552] current_step : 1
+[Mon Apr 11 20:14:43.074217 2016] [wsgi:error] [pid 9543:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:6: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agencies).
+[Mon Apr 11 20:14:43.074297 2016] [wsgi:error] [pid 9543:tid 140491991799552]   reverse("IRM.views.list_agencies")))
+[Mon Apr 11 20:14:43.074348 2016] [wsgi:error] [pid 9543:tid 140491991799552] 
+[Mon Apr 11 20:14:43.075107 2016] [wsgi:error] [pid 9543:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:10: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency).
+[Mon Apr 11 20:14:43.075294 2016] [wsgi:error] [pid 9543:tid 140491991799552]   reverse("IRM.views.add_agency")))
+[Mon Apr 11 20:14:43.075365 2016] [wsgi:error] [pid 9543:tid 140491991799552] 
+[Mon Apr 11 20:14:43.075943 2016] [wsgi:error] [pid 9543:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:13: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency_admin).
+[Mon Apr 11 20:14:43.076009 2016] [wsgi:error] [pid 9543:tid 140491991799552]   reverse("IRM.views.add_agency_admin")))
+[Mon Apr 11 20:14:43.076055 2016] [wsgi:error] [pid 9543:tid 140491991799552] 
+[Mon Apr 11 20:14:43.076821 2016] [wsgi:error] [pid 9543:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:16: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agency_admins).
+[Mon Apr 11 20:14:43.076888 2016] [wsgi:error] [pid 9543:tid 140491991799552]   reverse("IRM.views.list_agency_admins")))
+[Mon Apr 11 20:14:43.076935 2016] [wsgi:error] [pid 9543:tid 140491991799552] 
+[Mon Apr 11 20:14:43.077667 2016] [wsgi:error] [pid 9543:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:20: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_panel_members).
+[Mon Apr 11 20:14:43.077733 2016] [wsgi:error] [pid 9543:tid 140491991799552]   reverse("IRM.views.list_panel_members")))
+[Mon Apr 11 20:14:43.077780 2016] [wsgi:error] [pid 9543:tid 140491991799552] 
+[Mon Apr 11 20:14:44.286959 2016] [wsgi:error] [pid 9539:tid 140491991799552] current_step : 0
+[Mon Apr 11 20:22:11.592472 2016] [wsgi:error] [pid 9540:tid 140491991799552] current_step : 0
+[Mon Apr 11 20:22:11.603236 2016] [wsgi:error] [pid 9540:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:6: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agencies).
+[Mon Apr 11 20:22:11.603309 2016] [wsgi:error] [pid 9540:tid 140491991799552]   reverse("IRM.views.list_agencies")))
+[Mon Apr 11 20:22:11.603358 2016] [wsgi:error] [pid 9540:tid 140491991799552] 
+[Mon Apr 11 20:22:11.604054 2016] [wsgi:error] [pid 9540:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:10: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency).
+[Mon Apr 11 20:22:11.604122 2016] [wsgi:error] [pid 9540:tid 140491991799552]   reverse("IRM.views.add_agency")))
+[Mon Apr 11 20:22:11.604314 2016] [wsgi:error] [pid 9540:tid 140491991799552] 
+[Mon Apr 11 20:22:11.604917 2016] [wsgi:error] [pid 9540:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:13: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.add_agency_admin).
+[Mon Apr 11 20:22:11.604984 2016] [wsgi:error] [pid 9540:tid 140491991799552]   reverse("IRM.views.add_agency_admin")))
+[Mon Apr 11 20:22:11.605031 2016] [wsgi:error] [pid 9540:tid 140491991799552] 
+[Mon Apr 11 20:22:11.605828 2016] [wsgi:error] [pid 9540:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:16: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_agency_admins).
+[Mon Apr 11 20:22:11.605896 2016] [wsgi:error] [pid 9540:tid 140491991799552]   reverse("IRM.views.list_agency_admins")))
+[Mon Apr 11 20:22:11.605944 2016] [wsgi:error] [pid 9540:tid 140491991799552] 
+[Mon Apr 11 20:22:11.606688 2016] [wsgi:error] [pid 9540:tid 140491991799552] /app/kmine/kmine_cloud/IRM/menus.py:20: RemovedInDjango110Warning: Reversing by dotted path is deprecated (IRM.views.list_panel_members).
+[Mon Apr 11 20:22:11.606754 2016] [wsgi:error] [pid 9540:tid 140491991799552]   reverse("IRM.views.list_panel_members")))
+[Mon Apr 11 20:22:11.606801 2016] [wsgi:error] [pid 9540:tid 140491991799552] 
+[Mon Apr 11 20:22:36.827110 2016] [wsgi:error] [pid 9541:tid 140491991799552] current_step : 0
+[Mon Apr 11 20:22:38.046705 2016] [wsgi:error] [pid 9542:tid 140491991799552] current_step : 0
+[Mon Apr 11 20:23:04.370232 2016] [wsgi:error] [pid 9543:tid 140491991799552] current_step : 1
+[Mon Apr 11 20:23:05.592617 2016] [wsgi:error] [pid 9539:tid 140491991799552] current_step : 0
+[Mon Apr 11 20:26:51.555700 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /irm/add_panel_member
+[Mon Apr 11 20:26:54.290632 2016] [authz_core:error] [pid 9647:tid 140491691583232] [client 176.251.183.48:54969] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/kmine_auth/login/?next=/irm/add_panel_member/
+[Mon Apr 11 20:27:07.530216 2016] [wsgi:error] [pid 9539:tid 140491991799552] authenticated
+[Mon Apr 11 20:27:07.532037 2016] [wsgi:error] [pid 9539:tid 140491991799552] /irm/add_panel_member/
+[Mon Apr 11 20:27:08.149825 2016] [wsgi:error] [pid 9543:tid 140491991799552] current_step : 0
+[Mon Apr 11 20:27:30.676394 2016] [wsgi:error] [pid 9541:tid 140491991799552] current_step : 1
+[Mon Apr 11 20:27:42.679174 2016] [wsgi:error] [pid 9540:tid 140491991799552] current_step : 2
+[Mon Apr 11 20:28:08.539187 2016] [wsgi:error] [pid 9542:tid 140491991799552] current_step : 2
+[Mon Apr 11 20:28:21.069689 2016] [wsgi:error] [pid 9539:tid 140491991799552] This is Step3
+[Mon Apr 11 20:28:21.092691 2016] [wsgi:error] [pid 9539:tid 140491991799552] current_step : 3
+[Mon Apr 11 20:30:14.882460 2016] [wsgi:error] [pid 9543:tid 140491991799552] Calling Processing Form Data
+[Mon Apr 11 20:30:14.882909 2016] [wsgi:error] [pid 9543:tid 140491991799552] corstructing form
+[Mon Apr 11 20:30:14.883328 2016] [wsgi:error] [pid 9543:tid 140491991799552] corstructing form
+[Mon Apr 11 20:30:14.883482 2016] [wsgi:error] [pid 9543:tid 140491991799552] corstructing form
+[Mon Apr 11 20:30:14.883626 2016] [wsgi:error] [pid 9543:tid 140491991799552] corstructing form
+[Mon Apr 11 20:30:14.902318 2016] [wsgi:error] [pid 9543:tid 140491991799552] saved to DB
+[Mon Apr 11 20:30:14.902402 2016] [wsgi:error] [pid 9543:tid 140491991799552] 8
+[Tue Apr 12 03:23:35.755211 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /testproxy.php
+[Tue Apr 12 06:50:56.821744 2016] [wsgi:error] [pid 9542:tid 140491991799552] Not Found: /
+[Tue Apr 12 07:06:26.477892 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /xmlrpc.php
+[Tue Apr 12 08:00:31.347375 2016] [wsgi:error] [pid 9543:tid 140491991799552] Not Found: /
+[Tue Apr 12 10:33:31.295368 2016] [wsgi:error] [pid 9541:tid 140491991799552] Not Found: /
+[Tue Apr 12 12:39:38.771727 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /
+[Tue Apr 12 14:33:25.083287 2016] [wsgi:error] [pid 9542:tid 140491991799552] Not Found: /cache/global/img/gs.gif
+[Tue Apr 12 15:15:20.026899 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /
+[Tue Apr 12 16:12:44.739933 2016] [wsgi:error] [pid 9543:tid 140491991799552] Not Found: /
+[Tue Apr 12 18:23:47.269746 2016] [wsgi:error] [pid 9541:tid 140491991799552] Not Found: /
+[Wed Apr 13 00:55:31.158278 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /
+[Wed Apr 13 01:02:27.639726 2016] [wsgi:error] [pid 9542:tid 140491991799552] Not Found: /
+[Wed Apr 13 02:53:19.811121 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /
+[Wed Apr 13 02:53:20.411330 2016] [wsgi:error] [pid 9543:tid 140491991799552] Not Found: /
+[Wed Apr 13 02:53:20.467456 2016] [wsgi:error] [pid 9541:tid 140491991799552] Not Found: /IPMIdevicedesc.xml
+[Wed Apr 13 02:53:20.513739 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /status
+[Wed Apr 13 02:53:20.555581 2016] [wsgi:error] [pid 9542:tid 140491991799552] Not Found: /stats
+[Wed Apr 13 02:53:20.603193 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /
+[Wed Apr 13 02:53:20.604889 2016] [wsgi:error] [pid 9543:tid 140491991799552] Not Found: /PSBlock
+[Wed Apr 13 02:53:22.617674 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /login.aspx
+[Wed Apr 13 06:16:04.251503 2016] [wsgi:error] [pid 9541:tid 140491991799552] Not Found: /testproxy.php
+[Wed Apr 13 08:25:22.763292 2016] [wsgi:error] [pid 9542:tid 140491991799552] Not Found: /Mahe/
+[Wed Apr 13 08:25:22.997007 2016] [wsgi:error] [pid 9543:tid 140491991799552] Not Found: /Mahe/
+[Wed Apr 13 10:14:44.237665 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /Mahe/
+[Wed Apr 13 10:14:44.464356 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /Mahe/

@@ -23,7 +23,7 @@ admin.autodiscover()
 
 
 urlpatterns = [
-    url(r'',include('landing.urls'), name='home'),
+    #url(r'',include('landing.urls'), name='home'),
     url(r'^admin/', admin.site.urls),
     url(r'^(?i)Retail_Report/', include('Retail_Report.urls')),
     url(r'^(?i)kmine_auth/', include('kmine_auth.urls')),

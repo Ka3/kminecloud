@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'form_wizard',
     'menu',
     'IRM',
-
+    
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -58,7 +58,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'kmine_cloud.current_user.CurrentUserMiddleware',
 ]
 
 LOGIN_URL = '/kmine_auth/login/'
@@ -68,7 +67,7 @@ ROOT_URLCONF = 'kmine_cloud.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
 	'DIRS': [ os.path.join(BASE_DIR, 'templates').replace('\\','/'),],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -77,7 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-		'django.template.context_processors.request',
+		        #'django.template.context_processors.request',
             ],
         },
     },

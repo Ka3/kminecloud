@@ -34,6 +34,12 @@
 				<div class="collapse navbar-collapse navbar-responsive-collapse">
 					<div class="container">
 						<ul class="nav navbar-nav">
+							<li>
+								
+								<a href="{% url 'IRM.views.Landing' %}"><i class="fa fa-home service-icon"></i>
+									Home
+								</a>
+								</li>
 							{% with Type='Menu_bar' Title='Agency' menu=menus.Agency %}{% include "IRM/nav_bar.html" %}{% endwith %}
 							{% with Type='Menu_bar' Title='Panel Members' menu=menus.Panel_Members %}{% include "IRM/nav_bar.html" %}{% endwith %}
 						</ul>

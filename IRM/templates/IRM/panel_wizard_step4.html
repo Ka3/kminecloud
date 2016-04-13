@@ -1,0 +1,200 @@
+{% extends "unify/__form_skeleton.html" %}
+
+{% load form_custom %}
+
+{% block Style_sheets %} 
+
+	<link rel="stylesheet" href="/static/assets_u/plugins/animate.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/line-icons/line-icons.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+	<link rel="stylesheet" href="/static/assets_u/css/pages/profile.css">
+	
+	<style>
+	.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+
+</style>
+	
+{% endblock Style_sheets %}
+
+{% block Java_Scripts %}
+	<script type="text/javascript" src="/static/assets_u/plugins/back-to-top.js"></script>
+	<script type="text/javascript" src="/static/assets_u/plugins/smoothScroll.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.form.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/masking.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/app.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/style-switcher.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/masking.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/datepicker.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/validation.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/style-switcher.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/forms/contact.js"></script>>
+
+	
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			App.init();
+			Masking.initMasking();
+			Datepicker.initDatepicker();
+			Validation.initValidation();
+			ContactForm.initContactForm();
+			StyleSwitcher.initStyleSwitcher();
+			$("#sky-form1").validate();
+		});
+	</script>
+	
+{% endblock %}
+
+{% block Body_container %}
+
+content profile
+
+{% endblock Body_container %}
+
+{% load i18n %}
+
+{% block Content %}
+
+
+					<!-- Profile Content -->
+					
+				<div  class="row">
+				<!--Left Sidebar-->
+				<div class="col-md-3 ">
+
+					<ul  class="list-group sidebar-nav-v1  affix" id="sidebar-nav-1">
+						<li class="list-group-item">
+							<a href="#"><i class="fa fa-bar-chart-o"></i> Personal Details</a>
+						</li>
+						<li class="list-group-item">
+							<a href="#summary_Fieldset_2"><i class="fa fa-user"></i>Home Contact</a>
+						</li>
+						<li class="list-group-item">
+							<a href="#summary_Fieldset_3"><i class="fa fa-user"></i>Work Contact</a>
+						</li>
+						<li class="list-group-item">
+							<a href="#summary_Fieldset_4"><i class="fa fa-user"></i>Other Information</a>
+						</li>
+						
+					</ul>
+
+
+					<hr>
+
+				</div>
+				<!--End Left Sidebar-->
+				
+				<div class="col-md-9">
+					<div id="summary_profile" class="profile-body margin-bottom-20">
+					
+								<h2>
+												<div class='row'>
+													<div class='col-md-12'>
+
+													<p  class="text-right">Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+	
+													</div>
+										
+												</div>
+								</h2>
+
+
+								<div id="profile" class="profile-edit tab-pane fade in active">
+									<h2 class="heading-md"> Panal Member Summary </h2>
+									
+								<form method="post" id="sky-form3" class="sky-form">
+										
+								{% csrf_token %} 
+								{{ wizard.form.media }}
+								{{ wizard.management_form }}
+								
+									<p>Please Verify the details and Click the Create Button</p>
+									<br>
+									<dl class="dl-horizontal">
+									
+										{% for Set  in Field_order %}
+											<fieldset id="summary_Fieldset_{{forloop.counter}}"> 
+												{% for Val in Set %}
+									
+													<dt><strong>{{Val}} </strong></dt>
+													<dd>
+														{{ all_data|get_item:Val }}
+														<span>
+															<a class="pull-right" href="#">
+																<i class="fa fa-pencil"></i>
+															</a>
+														</span>
+													</dd>
+													<hr>
+												{% endfor %}
+											</fieldset>
+										{% endfor %}
+
+									</dl>
+											
+											<footer>
+												<div class="row">
+										
+													{% if wizard.steps.prev %}
+													<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3">
+														<button name="wizard_goto_step" class="btn-u btn-u-default"
+															type="submit" value="{{ wizard.steps.first }}">
+															<i class="fa fa-angle-double-left"></i> {% trans " first step" %}
+														</button>
+													</div>
+													<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3">
+														<button name="wizard_goto_step" type="submit"
+															class="btn-u btn-u-default" value="{{ wizard.steps.prev }}">
+															<i class="fa fa-angle-left"></i> {% trans "prev step" %}
+														</button>
+													</div>
+													{% else %}
+													<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3"></div>
+										
+													<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3"></div>
+													{% endif %}
+													<div class="col-xs-6 col-lg-6 col-md-6 col-sm-6">
+														<button type="submit" name="submit"
+															class="btn-u btn-u-green pull-right" value="submit">
+															{% trans 'Create Contact' %} 
+														</button>
+													</div>
+												</div>
+										
+											</footer>
+											
+										</form>
+								</div>
+
+
+
+						</div>
+					</div>
+				</div>
+				<!-- End Profile Content -->
+
+										
+
+
+									
+									
+
+				
+
+{{ all_data }}
+
+{% endblock Content %}
