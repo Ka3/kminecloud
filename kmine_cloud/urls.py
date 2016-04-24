@@ -31,7 +31,8 @@ urlpatterns = [
     url(r'^home/', include('landing.urls')),
     url(r'^events/', include('events.urls')),
     url(r'^form_wizard/', include('form_wizard.urls')),  
-    url(r'^(?i)IRM/', include('IRM.urls')),   
+    url(r'^(?i)IRM/', include('IRM.urls')), 
+    url(r'^(?i)domain/', include('domain.urls')),  
     
     #url(r'^(?i)events/', include('events.urls')),
    ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

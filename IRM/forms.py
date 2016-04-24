@@ -5,7 +5,7 @@ from django.contrib.admin.templatetags.admin_static import static
 
 
 
-from models import IRM_Agency,IRM_Agency_Admin_Contact,IRM_PanelContact
+from models import IRM_Agency,IRM_Agency_Admin_Contact,IRM_PanelContact,IRM_Case,IRM_Case_dup
 
 
 class Future_DateWidget(forms.DateInput):
@@ -112,3 +112,35 @@ class Panel_Form4(ModelForm):
           model = IRM_PanelContact
           fields = ()
                
+class Case_Form1(ModelForm):
+    class Meta:
+        model = IRM_Case
+        fields = ('Type','IRM_Reference', 'IRM_Location', 'Agency', 'Agency_Decision','Legal_Advisor', 'Date_Appliction_Received','Report_Status', 'Inter_Country', 'Major_Recommendation','Case_Notes' )
+        widgets = {
+            'Inter_Country': forms.NullBooleanSelect(attrs={'required': True}),
+            'Type' : forms.Select(attrs={'required': True}),
+            'Agency' : forms.Select(attrs={'required': True}),
+            'Date_Appliction_Received' : forms.TextInput(attrs={'required': True}),
+            'Major_Recommendation' : forms.TextInput(attrs={'required': True}),
+            'IRM_Location' : forms.Select(attrs={'required': True}),
+            'Legal_Advisor' : forms.TextInput(attrs={'required': True}),
+        }
+
+class Case_Form2(ModelForm):
+    class Meta:
+        model = IRM_Case
+        fields = ('Person_1_Title','Person_1_Gender','Person_1_FirstName','Person_1_Surname','Person_1_Ethnicity','Person_1_DateOfBirth','Marital_Status','Salutation')
+
+class Case_Form3(ModelForm):
+    class Meta:
+        model = IRM_Case
+        fields = ('Person_2_Title','Person_2_Gender','Person_2_FirstName','Person_2_Surname','Person_2_Ethnicity','Person_2_DateOfBirth')
+
+class Case_Form4(ModelForm):
+    class Meta:
+        model = IRM_Case
+        fields = ('Address_Line_1','Address_Line_2','Address_Line_3','Address_Line_4','Town','County','Postcode','Phone','Mobile','Email','Fax','ContactNotes')
+class Case_Form5(ModelForm):
+    class Meta:
+        model = IRM_Case
+        fields = ()

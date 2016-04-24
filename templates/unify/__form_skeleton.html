@@ -1,12 +1,10 @@
 {% extends "unify/__base.html" %}
 
-{% block Style_sheets %} .
-	
+{% block Style_sheets %}
 {% endblock Style_sheets %}
 
 
 {% block Java_Scripts %}
-
 {% endblock %}
 
 
@@ -15,9 +13,11 @@
 <div class="row">
 
 <div class="col-md-2">
+{% block Side_Bar %}
 	{% include 'IRM/left_sidebar.html' %}
 
-
+{% endblock Side_Bar %}
+</div>
 <div class="col-xs-8 col-lg-8 col-md-12 col-sm-12">
 {% block Form %}
 

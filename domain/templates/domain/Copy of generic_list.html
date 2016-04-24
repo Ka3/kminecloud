@@ -1,0 +1,42 @@
+{% extends "unify/__table_view.html" %}
+{% load i18n %}
+{% load form_custom %}
+{% block Page_Theme %}purple.css{% endblock Page_Theme %}
+{% block Style_sheets %}
+{% endblock Style_sheets %}
+{% block Form %}
+					<div id="alert-2"></div>
+					<br><br>
+
+					<div class="panel panel-grey margin-bottom-40">
+						<div class="panel-heading">
+							<h3 class="panel-title"><i class="fa fa-globe"></i>{{ Title }} </h3>
+						</div>
+						<div class="panel-body">
+							    <table id='Table_list' class="table table-bordered">
+								<thead>
+									<tr>
+										{% for field in Columns %}
+											<th>{{field}}</th>
+										{% endfor %}
+									</tr>
+								</thead>
+								<tbody>
+							
+								{% for query in query_list %}
+									<tr>
+										{% for field in Columns %}
+											<td>{{ query|get_value:field }}</td>
+										{% endfor %}
+										</td>						
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!--End Table Bordered-->
+
+					<div class="margin-bottom-60"></div>						
+
+{% endblock Form %}

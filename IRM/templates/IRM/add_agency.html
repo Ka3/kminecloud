@@ -3,22 +3,20 @@
 {% load form_custom %}
 {% load i18n %}
 
-{% block Page_Theme %}purple.css{% endblock Page_Theme %}
-
-
-
 {% block Style_sheets %}
 	<link rel="stylesheet" href="/static/assets_u/plugins/animate.css">
 	<link rel="stylesheet" href="/static/assets_u/plugins/line-icons/line-icons.css">
 	<link rel="stylesheet" href="/static/assets_u/plugins/font-awesome/css/font-awesome.min.css">
 
 	
-	<link rel="stylesheet" href="/static/assets_u/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+	
 	<link rel="stylesheet" href="/static/assets_u/plugins/line-icons/line-icons.css">
 	<link rel="stylesheet" href="/static/assets_u/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
 	<link rel="stylesheet" href="/static/assets_u/plugins/owl-carousel/owl-carousel/owl.carousel.css">
 	<link rel="stylesheet" href="/static/assets_u/plugins/fancybox/source/jquery.fancybox.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/sky-forms-pro/skyforms/css/{% if request.user.profile.Theme_colour %}sky-forms-{{ request.user.profile.Theme_colour }}{% else %}sky-forms{% endif %}.css">
 	<!--[if lt IE 9]><link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/css/sky-forms-ie8.css"><![endif]-->
+	<link rel="stylesheet" href="/static/assets_u/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
 
 <style>
 
@@ -40,11 +38,9 @@
 	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.form.min.js"></script>
 	<script type="text/javascript" src="/static/assets_u/js/plugins/masking.js"></script>
 	<script type="text/javascript" src="/static/assets_u/js/app.js"></script>
-	<script type="text/javascript" src="/static/assets_u/js/plugins/style-switcher.js"></script>
 	<script type="text/javascript" src="/static/assets_u/js/plugins/masking.js"></script>
 	<script type="text/javascript" src="/static/assets_u/js/plugins/datepicker.js"></script>
 	<script type="text/javascript" src="/static/assets_u/js/plugins/validation.js"></script>
-	<script type="text/javascript" src="/static/assets_u/js/plugins/style-switcher.js"></script>
 	<script type="text/javascript" src="/static/assets_u/js/plugins/style-switcher.js"></script>
 
 	

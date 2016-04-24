@@ -38,18 +38,14 @@
 	<!-- <link rel="stylesheet" href="/static/assets_u/plugins/owl-carousel/owl-carousel/owl.carousel.css"> -->
 
 	<!-- CSS Theme -->
-	<link rel="stylesheet" href="/static/assets_u/css/theme-colors/{% block Page_Theme %}default.css{% endblock Page_Theme %}">
-	<link rel="stylesheet" href="/static/assets_u/css/theme-skins/dark.css">
+
+	<link rel="stylesheet" href="/static/assets_u/css/theme-colors/{% if request.user.profile.Theme_colour %}{{ request.user.profile.Theme_colour }}{% else %}default{% endif %}.css">
+	
 
 	<!-- CSS Customization -->
 	<link rel="stylesheet" href="/static/assets_u/css/custom.css">
-	
-	{% block Style_sheets %}
-	
-	{% endblock Style_sheets %}
 	<link rel="stylesheet" href="/static/assets_u/css/headers/header-v4-centered.css">
-	
-<style>
+	<style>
 .header-v4 .mega-menu .container {
 	width: 100%;
   	position: relative;
@@ -58,17 +54,16 @@
   	color: #fff
 
 }
-
-</style>
+	</style>
+	
+	{% block Style_sheets %}
+	{% endblock Style_sheets %}
 	
 </head>
 
 <body>
-
 	<div class="wrapper">
-	
 		{% include "unify/_menu_bar.html" %}
-	
 		<!--=== Content Part ===-->
 		<div class="container {% block Body_container %} full-width {% endblock Body_container %}">
 		{% block Content %}
@@ -266,13 +261,9 @@
 		</div><!--/container-->
 		<!-- End Content Part -->
 
-
 		<!--=== Footer Version 1 ===-->
 		<!--=== End Footer Version 1 ===-->
 	</div><!--/wrapper-->
-
-	
-
 	<!-- JS Global Compulsory -->
 	<script type="text/javascript" src="/static/assets_u/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="/static/assets_u/plugins/jquery/jquery-migrate.min.js"></script>
@@ -283,11 +274,8 @@
 	<!-- JS Customization -->
 	<script type="text/javascript" src="/static/assets_u/js/custom.js"></script>
 	<!-- JS Page Level -->
-	{% block Java_Scripts %} .
-	
+	{% block Java_Scripts %}
 	{% endblock Java_Scripts %}
-	
-
 
 		<!--[if lt IE 9]>
 			<script src="/static/assets_u/plugins/respond.js"></script>

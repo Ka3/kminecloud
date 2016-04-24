@@ -1,0 +1,196 @@
+{% extends "unify/__form_skeleton.html" %}
+{% load staticfiles %}
+{% load form_custom %}
+{% load i18n %}
+
+{% block Page_Theme %}purple.css{% endblock Page_Theme %}
+
+
+
+{% block Style_sheets %}
+	<link rel="stylesheet" href="/static/assets_u/plugins/animate.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/line-icons/line-icons.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/font-awesome/css/font-awesome.min.css">
+
+	
+	<link rel="stylesheet" href="/static/assets_u/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/line-icons/line-icons.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/fancybox/source/jquery.fancybox.css">
+	<!--[if lt IE 9]><link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/css/sky-forms-ie8.css"><![endif]-->
+
+<style>
+
+
+label.required {
+   font: italic 20px Georgia;
+
+}
+
+.required:after { content:"  *"; }
+
+
+</style>
+
+{% endblock Style_sheets %}
+
+
+{% block Java_Scripts %}
+	<script type="text/javascript" src="/static/assets_u/plugins/back-to-top.js"></script>
+	<script type="text/javascript" src="/static/assets_u/plugins/smoothScroll.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/masking.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/app.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/style-switcher.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/masking.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/datepicker.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/validation.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/style-switcher.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/style-switcher.js"></script>
+	<script type="text/javascript" src="{% static 'django_ajax/js/jquery.ajax.min.js' %}"></script>
+
+	
+
+	
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			App.init();
+			Masking.initMasking();
+			Datepicker.initDatepicker();
+			Validation.initValidation();
+			StyleSwitcher.initStyleSwitcher();
+			App.initSidebarMenuDropdown();
+			StyleSwitcher.initStyleSwitcher();
+
+			
+			$("#sky-form3").validate();
+			
+			$(".vDateField").datepicker({
+				dateFormat : 'mm/dd/yy',
+	            changeMonth : true,
+	            changeYear : true,
+	            yearRange: '-100y:c+nn',
+	            maxDate: '-1d'
+		});
+		
+		
+			$(".fut_DateField").datepicker({
+			dateFormat : 'mm/dd/yy',
+            changeMonth : true,
+            changeYear : true,
+            yearRange: '-100y:c+nn',
+			});
+			
+			$("#id_domain_name").change(function(){
+				
+				
+				domain_name = $("#id_domain_name").val()
+			    ajaxPost('/domain/get_expiry_date', {'site_name': domain_name}, function(content){
+			        //onSuccess
+			        //alert(JSON.stringify(content))
+			        var obj = JSON.stringify(content);
+			        //alert(obj);
+			        var json_obj = JSON.parse(obj);
+			        //alert(loadPath.exp_date);
+			        $("#id_expiry_date").val(json_obj.exp_date);
+			        $("#id_domain_provider").val(json_obj.registrar);
+			        $("#id_A_Record").val(json_obj.ip_addr);
+			        $("#id_Hosting_server").val(json_obj.hosted_server);
+			        $("#id_MX_Records").val(json_obj.mx);
+			        
+			        
+			        
+			    });
+			});
+			
+		});
+	</script>
+{% endblock Java_Scripts %}
+
+{% block Side_Bar %}
+{% endblock Side_Bar %}
+
+
+{% block Form %}
+						
+
+
+					{% if Notify %}
+						
+						<div class="tab-pane fade in" id="alert-2">
+								<div class="margin-bottom-15"></div>
+								<div class="alert alert-{{Notify.level}} fade in alert-dismissable">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+									<i class="rounded-x fa fa-check"></i>
+									<strong>{{Notify.level}}</strong> {{ Notify.Message}}
+									{{forms.errors }}
+								</div>
+						</div>
+					{% elif form.errors %}
+						<div class="tab-pane fade in" id="alert-2">
+							<div class="margin-bottom-15"></div>
+								<div class="alert alert-warning fade in alert-dismissable">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<i class="rounded-x fa fa-exclamation-triangle"></i>
+								<strong>Error!!<br></strong> {{ form.errors }}
+								</div>	
+								
+						</div>
+					{% else	%} 			
+						<div id="alert-2"></div>
+						
+					{% endif %}
+
+										<div class="margin-bottom-40"></div>
+
+					<!-- Order Form -->
+
+					<form action="" method="post" id="sky-form3" class="sky-form">
+					{% csrf_token %} 
+						<header>{{ Form_Title }} </header>
+						
+						<fieldset>
+							
+							<div class="row">
+								{% for ind_form in form %}
+								
+								{% if ind_form|fieldtype == 'Textarea' %}
+									<section class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								{% else %}
+									<section class="col col-lg-7 col-md-12 col-sm-10 col-xs-10">
+								{% endif %}
+									<div class="row">
+										{% if ind_form|fieldtype == 'Textarea' %}	
+											<label for="{{ind_form.id_for_label}}" class="label col col-2">{{ind_form.label}}</label>
+										{% else %}
+											<label for="{{ind_form.id_for_label}}" class="label col col-4 {{ ind_form.field.widget.is_required |yesno:'required,'}}">{{ind_form.label}}</label>
+											
+										{% endif %}
+										<div class="col col-8">
+											<label class="{{ind_form|field_label}}">
+												{{ind_form}} 
+											</label>
+										</div>
+									</div>
+								</section>
+								{% endfor %}
+							</div>
+
+						</fieldset>
+						<footer>
+							<button type="submit" class="btn-u">Submit</button>
+							<div class="progress"></div>
+						</footer>
+						<div class="message">
+							<i class="rounded-x fa fa-check"></i>
+							<p>Thanks for your order!<br>We'll contact you very soon.</p>
+						</div>
+					</form>
+					<!-- End Order Form -->
+						
+
+{% endblock Form %}

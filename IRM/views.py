@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect,HttpResponseForbidden,HttpResponse
 from django.views.decorators.csrf import csrf_protect
 from django.core.exceptions import PermissionDenied
 
-from models import IRM_Agency,IRM_Agency_Admin_Contact,IRM_PanelContact
+from models import IRM_Agency,IRM_Agency_Admin_Contact,IRM_PanelContact,IRM_Case,IRM_Case_dup
 from forms import Add_agency_Form,Add_Agency_Admin_Form,Panel_Form1,Panel_Form2,Panel_Form3,Panel_Form4
 
 from django.contrib.auth.decorators import login_required
@@ -15,6 +15,8 @@ from django.forms.models import construct_instance
 
 from django.db.models import Count
 from django.db.models import Q
+from django.db import transaction
+from reversion import revisions as reversion
 
 # Create your views here.
 @login_required
@@ -43,6 +45,8 @@ def Landing(request):
 notify = {}
 
 @login_required
+@transaction.atomic()
+@reversion.create_revision()  
 def add_agency(request):
     notify = {}
     Form_Title = 'Add Agency'
@@ -263,13 +267,85 @@ class ContactWizard(SessionWizardView):
         return HttpResponseRedirect('/form_wizard/profile/'+ str(form_data))
     
 def process_form_data(form_list):
-    print 'Calling Processing Form Data'
-    form_data = [form.cleaned_data for form in form_list]
-    new = IRM_PanelContact()
-    for form in form_list:
-        print 'corstructing form' 
-        new = construct_instance(form, new, form._meta.fields, form._meta.exclude)
-    sara = new.save()
-    print 'saved to DB'
-    return new.id
+        print 'Calling Processing Form Data'
+        form_data = [form.cleaned_data for form in form_list]
+        new = IRM_PanelContact()
+        for form in form_list:
+            print 'corstructing form' 
+            new = construct_instance(form, new, form._meta.fields, form._meta.exclude)
+        sara = new.save()
+        print 'saved to DB'
+        return new.id
 
+class CaseWizard(SessionWizardView):
+    def get_template_names(self):
+        print self.steps.current
+        print type(self.steps.current)
+        
+        if str(self.steps.current) == '0':
+            print 'step 1'
+            return 'IRM/Case_Form1.html'
+        elif str(self.steps.current) == '1':
+            print 'step 2'
+            return 'IRM/Case_Form1.html'
+        
+        elif str(self.steps.current) == '2':
+            print 'step 3'
+            return 'IRM/Case_Form1.html'
+        
+        elif str(self.steps.current) == '3':
+            print 'step 4'
+            return 'IRM/Case_Form1.html'
+        else:
+            print 'step 5'
+            return 'IRM/Case_Form_Summary.html'
+    template_name=""
+    
+    def get_context_data(self, form, **kwargs):
+        context = super(CaseWizard, self).get_context_data(form=form, **kwargs)
+        if self.steps.current == '0':
+            print 'This is Step1'
+            context.update({'Title':'Case Creation Wizard : Case Information'}) 
+        
+        elif self.steps.current == '1':
+            print 'This is Step2'
+            context.update({'Title':'Case Creation Wizard : Applicant Information'}) 
+        
+        elif self.steps.current == '2':
+            print 'This is Step2'
+            context.update({'Title':'Case Creation Wizard : Contact Information'}) 
+        elif self.steps.current == '3':
+            print 'This is Step2'
+            context.update({'Title':'Case Creation Wizard : Contact Information'}) 
+        elif self.steps.current == '4':
+            print 'This is Step4'
+            Field_order = [ 
+                           ['Type','IRM_Reference', 'IRM_Location', 'Agency', 'Agency_Decision','Legal_Advisor', 'Date_Appliction_Received','Report_Status', 'Inter_Country', 'Major_Recommendation','Case_Notes' ],
+                           ['Salutation','Person_1_Title','Person_1_FirstName','Person_1_Surname','Person_1_Gender','Person_1_DateOfBirth','Person_1_Ethnicity','Person_2_Title','Person_2_FirstName','Person_2_Surname','Person_2_Gender','Person_2_DateOfBirth','Person_2_Ethnicity','Marital_Status'],
+                           ['Address_Line_1','Address_Line_2','Address_Line_3','Address_Line_4','Town','County','Postcode','Phone','Mobile','Email','Fax','ContactNotes'],
+                           ]
+            context.update({'all_data': self.get_all_cleaned_data(),
+                            'Field_order' : Field_order                            
+                            })
+        return context
+
+    def done(self, form_list, **kwargs):
+        print 'calling done method'
+        form_data = process_case_data(form_list)
+        return HttpResponseRedirect('/IRM/Case_detail/'+ str(form_data))
+     
+def process_case_data(form_list):
+    print 'Calling Processing case Data'
+    form_data = [form.cleaned_data for form in form_list]
+    new = IRM_Case_dup()
+    for form in form_list:
+        new = construct_instance(form, new, form._meta.fields, form._meta.exclude)
+    new.save()
+    print 'Saved Case information in Database : Case ID : ' + str(new.id)
+    return new.id
+def list_cases(request):
+    panel_member_list_qs = IRM_Case.objects.all()
+    return render(request,'IRM/panel_CONTACT_list.html',{'Contact_list':panel_member_list_qs})
+
+def Case_detail(request,Record_id):
+    return HttpResponse('<h1>Case Detail')

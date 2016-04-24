@@ -1,16 +1,9 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.contrib.auth.models import User
 
-# Create your models here.
 
-class User_Profile(models.Model):
-    user = models.OneToOneField(User)
-    user_Default_org = models.CharField(max_length=100)
-    user_URLField = models.CharField(max_length=200)
 
-User.profile = property(lambda u: User_Profile.objects.get_or_create(user=u)[0])
 
 class Transaction_Table(models.Model):
     def __str__(self):

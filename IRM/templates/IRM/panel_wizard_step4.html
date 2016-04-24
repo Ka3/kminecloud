@@ -50,10 +50,9 @@ input[type="file"] {
 			App.init();
 			Masking.initMasking();
 			Datepicker.initDatepicker();
-			Validation.initValidation();
-			ContactForm.initContactForm();
 			StyleSwitcher.initStyleSwitcher();
-			$("#sky-form1").validate();
+
+			
 		});
 	</script>
 	
@@ -114,7 +113,7 @@ content profile
 
 
 								<div id="profile" class="profile-edit tab-pane fade in active">
-									<h2 class="heading-md"> Panal Member Summary </h2>
+									<h2 class="heading-md"> Panal Member Preview </h2>
 									
 								<form method="post" id="sky-form3" class="sky-form">
 										
@@ -131,14 +130,8 @@ content profile
 												{% for Val in Set %}
 									
 													<dt><strong>{{Val}} </strong></dt>
-													<dd>
-														{{ all_data|get_item:Val }}
-														<span>
-															<a class="pull-right" href="#">
-																<i class="fa fa-pencil"></i>
-															</a>
-														</span>
-													</dd>
+													<dd>&nbsp;&nbsp;&nbsp;&nbsp;{{ all_data|get_item:Val }}</dd>
+													
 													<hr>
 												{% endfor %}
 											</fieldset>
@@ -186,15 +179,5 @@ content profile
 					</div>
 				</div>
 				<!-- End Profile Content -->
-
-										
-
-
-									
-									
-
-				
-
-{{ all_data }}
 
 {% endblock Content %}

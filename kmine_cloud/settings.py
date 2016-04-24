@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'form_wizard',
     'menu',
     'IRM',
-    
+    'reversion',  
+    'domain',  
+    'django_ajax',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -58,6 +60,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 LOGIN_URL = '/kmine_auth/login/'
@@ -141,3 +144,5 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = '/app/media/'
+
+AUTH_PROFILE_MODULE = 'kmine_auth.UserProfile'

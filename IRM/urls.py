@@ -4,8 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.conf.urls.static import static
 from IRM import views
-from IRM.forms import Panel_Form1, Panel_Form2, Panel_Form3, Panel_Form4
-from views import ContactWizard
+from IRM.forms import Panel_Form1, Panel_Form2, Panel_Form3, Panel_Form4,Case_Form5
+from IRM.forms import Case_Form1, Case_Form2, Case_Form3, Case_Form4
+from views import ContactWizard,CaseWizard
 
 urlpatterns = [
                
@@ -28,4 +29,8 @@ urlpatterns = [
             url(r'^(?i)list_legal_advisors/$', views.list_legal_advisors ,name='list_legal_advisors'),
             url(r'^(?i)deactivate_panel_member/(?P<Record_id>[\w\d\ \-]+)$', views.deactivate_panel_member ,name='deactivate_panel_member'),
             
+            url(r'^(?i)create_case/', CaseWizard.as_view([Case_Form1, Case_Form2, Case_Form3,Case_Form4]) , name='create_case' ),
+            url(r'^(?i)list_cases/$', views.list_cases ,name='list_cases'),
+            url(r'^(?i)Case_detail/(?P<Record_id>[\w\d\ \-]+)$', views.Case_detail ,name='Case_detail'),
+
         ] 

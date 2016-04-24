@@ -1,0 +1,151 @@
+{% extends "unify/__form_skeleton.html" %}
+
+{% load form_custom %}
+
+{% block Style_sheets %} 
+
+	<link rel="stylesheet" href="/static/assets_u/plugins/animate.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/line-icons/line-icons.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+	<link rel="stylesheet" href="/static/assets_u/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+	
+	<style>
+	.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+
+</style>
+	
+{% endblock Style_sheets %}
+
+{% block Java_Scripts %}
+
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+	<script src="/static/assets_u/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/masking.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/app.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/datepicker.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/style-switcher.js"></script>
+	<script type="text/javascript" src="/static/assets_u/js/plugins/validation.js"></script>
+
+	
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			App.init();
+			Masking.initMasking();
+			Datepicker.initDatepicker();
+			Validation.initValidation();
+			StyleSwitcher.initStyleSwitcher();
+			
+			$("#sky-form1").validate();
+			
+			$(".vDateField").datepicker({
+					dateFormat : 'mm/dd/yy',
+		            changeMonth : true,
+		            changeYear : true,
+		            yearRange: '-100y:c+nn',
+		            maxDate: '-1d'
+						});
+		});
+	</script>
+	
+
+	
+{% endblock %}
+
+
+{% load i18n %}
+
+{% block Form %}
+					<br>
+					<br>
+
+
+
+							<!-- Validation Forms -->
+							
+							<div id="profile-1">
+								<form method="post"  id="sky-form1" class="sky-form">
+								{% csrf_token %}
+								{{ wizard.form.media }}
+								{{ wizard.management_form }}
+								{{ wizard.form.errors }}
+
+									<header>
+									<div class='row'>
+									<div class='col col-6'>
+									{{ Title }}
+									</div >
+									<div class='col col-6'>
+									
+									<p class="text-right" >Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+									</div>
+									
+									</div>
+									</header>
+
+									<fieldset>	
+									
+
+										<div class="row">
+										{% for form in wizard.form %}
+
+												{% if form|fieldtype == 'Textarea' %}
+													<section class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												{% else %}
+													<section class="col col-lg-7 col-md-7 col-sm-10 col-xs-10">
+												{% endif %}
+
+																	{% if form|fieldtype == 'Textarea' %}	
+																		<label for="{{ind_form.id_for_label}}" class="label col col-2">{{form.label}}</label>
+																	{% else %}
+																		<label for="{{ind_form.id_for_label}}" class="label col col-4">{{form.label}}</label>
+																	{% endif %}
+																	<div class="col col-7">
+																		<label class="{{form|field_label}}">
+																		{{ form }}
+																		</label>					
+
+																	</div>
+													</section>
+												
+									    {% endfor %}
+									    </div>
+
+									
+									</fieldset>	
+									<footer>
+									<div class="row">
+									
+									{% if wizard.steps.prev %}
+										<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3">
+										<button name="wizard_goto_step" class="btn-u btn-u-default" type="submit" value="{{ wizard.steps.first }}"><i class="fa fa-angle-double-left"></i> {% trans " first step" %}</button>
+										</div>
+										<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3">
+										<button name="wizard_goto_step" type="submit" class="btn-u btn-u-default"  value="{{ wizard.steps.prev }}"> <i class="fa fa-angle-left"></i> {% trans "prev step" %}</button>
+										</div>
+									{% else %}
+										<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3"></div>
+										
+										<div class="col-xs-3 col-lg-3 col-md-3 col-sm-3"></div>
+									{% endif %}
+										<div class="col-xs-6 col-lg-6 col-md-6 col-sm-6">
+										<button type="submit" name="submit" class="btn-u btn-u-green pull-right"  value="submit" >{% trans 'Save & Continue  ' %}   <i class="fa fa-angle-right"></i></button>
+										</div>
+									</div>
+
+									</footer>
+								</form>
+							</div>
+						
+				<!-- End Content -->
+							<!-- End Validation Forms -->
+
+
+{% endblock Form %}

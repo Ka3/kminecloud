@@ -3,6 +3,10 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+#import audit
+from reversion import revisions as reversion
+
+
 # Create your models here.
 
 
@@ -85,6 +89,7 @@ class Test_Person(models.Model):
     Ethnicity = models.ForeignKey(IRM_Ethinicity)
     Location = models.ForeignKey(IRM_Location)
     
+@reversion.register()
 class IRM_Agency(models.Model):
     def __str__(self):
         return self.Agency_Name
@@ -151,8 +156,7 @@ class IRM_PanelContactRole(models.Model):
 
 class IRM_PanelContact(models.Model):   
     
-    def __str__(self):
-        return self.Firstname + ' ' + self.Surname 
+ 
 
     Principal_IRMLocationID_FK = models.ForeignKey(IRM_Location,related_name='%(class)s_Principal_Location',verbose_name='Principal IRM Location')
     Two_IRMLocationID_FK =  models.ForeignKey(IRM_Location,related_name='%(class)s_Secondary_Location', verbose_name='Secondary IRM Location' )
@@ -201,6 +205,11 @@ class IRM_PanelContact(models.Model):
     created = models.DateTimeField()
     modified = models.DateTimeField()
     
+    #history = audit.AuditTrail()
+    
+    def __str__(self):
+        return self.Firstname + ' ' + self.Surname
+    
     def save(self, *args, **kwargs):
             if not self.id:
                 self.created = timezone.now()
@@ -208,6 +217,7 @@ class IRM_PanelContact(models.Model):
             self.modified = timezone.now()
             return super(IRM_PanelContact, self).save(*args, **kwargs)
 
+    
 
     
 class Case_Type(models.Model):
@@ -230,6 +240,11 @@ class Panel_Recommendations(models.Model):
     def __str__(self):
         return self.types
 
+
+class IRM_Case_dup(models.Model):
+    abc = models.CharField(max_length=20,blank=True, null=True)
+    lef = models.CharField(max_length=20,blank=True, null=True)
+    sar = models.CharField(max_length=20,blank=True, null=True)
         
 class IRM_Case(models.Model):
     #CaseID =  models.IntegerField(auto_increment=True,startswith=1000)
@@ -243,7 +258,7 @@ class IRM_Case(models.Model):
     Inter_Country = models.CharField(max_length=10,choices=Yes_No_Choices)
     Major_Recommendation = models.CharField(max_length=10,choices=Yes_No_Choices)
     Agency_Decision = models.ForeignKey(Agency_Decision, blank=True, null=True)
-    Case_Notes = models.CharField(max_length=100, blank=True, null=True)
+    Case_Notes = models.TextField(max_length=2000, blank=True, null=True)
     
     #########Applicatant Information#####################
     Salutation = models.CharField(max_length=100, blank=True, null=True)
@@ -273,7 +288,7 @@ class IRM_Case(models.Model):
     Mobile = models.CharField(max_length=50, blank=True, null=True)
     Email = models.EmailField(max_length=50, blank=True, null=True)
     Fax = models.CharField(max_length=50, blank=True, null=True)
-    ContactNotes =  models.CharField(max_length=2000, blank=True, null=True)
+    ContactNotes =  models.TextField(max_length=2000, blank=True, null=True)
     
 
 """ 
