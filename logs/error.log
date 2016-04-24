@@ -1411,3 +1411,39 @@
 [Sun Apr 24 13:01:57.677437 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /testproxy.php
 [Sun Apr 24 15:43:26.217906 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /manager/html
 [Sun Apr 24 16:42:22.003350 2016] [wsgi:error] [pid 9542:tid 140491991799552] Not Found: /s/ref=nb_sb_noss_2
+[Sun Apr 24 17:02:47.619489 2016] [wsgi:error] [pid 9541:tid 140491991799552] Not Found: /
+[Sun Apr 24 17:35:43.538835 2016] [wsgi:error] [pid 9543:tid 140491991799552] Not Found: /
+[Sun Apr 24 17:54:56.531523 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /
+[Sun Apr 24 17:54:56.945527 2016] [authz_core:error] [pid 9647:tid 140491827951360] [client 90.219.66.86:52884] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/
+[Sun Apr 24 17:55:03.759130 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /irm
+[Sun Apr 24 17:55:04.036625 2016] [wsgi:error] [pid 9542:tid 140491991799552] Internal Server Error: /irm/
+[Sun Apr 24 17:55:04.036661 2016] [wsgi:error] [pid 9542:tid 140491991799552] Traceback (most recent call last):
+[Sun Apr 24 17:55:04.036672 2016] [wsgi:error] [pid 9542:tid 140491991799552]   File "/app/kmine/lib/python2.7/site-packages/django/core/handlers/base.py", line 158, in get_response
+[Sun Apr 24 17:55:04.036683 2016] [wsgi:error] [pid 9542:tid 140491991799552]     % (callback.__module__, view_name))
+[Sun Apr 24 17:55:04.036693 2016] [wsgi:error] [pid 9542:tid 140491991799552] ValueError: The view IRM.views.Landing didn't return an HttpResponse object. It returned None instead.
+[Sun Apr 24 17:55:05.922165 2016] [authz_core:error] [pid 9546:tid 140491806971648] [client 90.219.66.86:52885] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/irm/
+[Sun Apr 24 17:55:12.216527 2016] [wsgi:error] [pid 9541:tid 140491991799552] Not Found: /IRM
+[Sun Apr 24 17:55:12.451534 2016] [wsgi:error] [pid 9543:tid 140491991799552] Internal Server Error: /IRM/
+[Sun Apr 24 17:55:12.451570 2016] [wsgi:error] [pid 9543:tid 140491991799552] Traceback (most recent call last):
+[Sun Apr 24 17:55:12.451582 2016] [wsgi:error] [pid 9543:tid 140491991799552]   File "/app/kmine/lib/python2.7/site-packages/django/core/handlers/base.py", line 158, in get_response
+[Sun Apr 24 17:55:12.451592 2016] [wsgi:error] [pid 9543:tid 140491991799552]     % (callback.__module__, view_name))
+[Sun Apr 24 17:55:12.451603 2016] [wsgi:error] [pid 9543:tid 140491991799552] ValueError: The view IRM.views.Landing didn't return an HttpResponse object. It returned None instead.
+[Sun Apr 24 17:55:13.224473 2016] [authz_core:error] [pid 9647:tid 140491817461504] [client 90.219.66.86:52889] AH01630: client denied by server configuration: /app/kmine/kmine_cloud/favicon.ico, referer: http://dev.kmine.com/IRM/
+[Sun Apr 24 18:04:04.967434 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /
+[Sun Apr 24 18:24:02.191442 2016] [core:error] [pid 9545:tid 140491960329984] [client 176.31.234.65:60338] AH00126: Invalid URI in request GET HTTP/1.1 HTTP/1.1
+[Sun Apr 24 18:24:03.530867 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /
+[Sun Apr 24 18:24:03.877499 2016] [wsgi:error] [pid 9542:tid 140491991799552] Not Found: /admin.cgi
+[Sun Apr 24 18:24:04.224752 2016] [wsgi:error] [pid 9541:tid 140491991799552] Not Found: /administrator.cgi
+[Sun Apr 24 18:24:05.572484 2016] [wsgi:error] [pid 9543:tid 140491991799552] Not Found: /agora.cgi
+[Sun Apr 24 18:24:06.911031 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /aktivate/cgi-bin/catgy.cgi
+[Sun Apr 24 18:24:07.260812 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /analyse.cgi
+[Sun Apr 24 18:24:07.617826 2016] [wsgi:error] [pid 9542:tid 140491991799552] Not Found: /apps/web/vs_diag.cgi
+[Sun Apr 24 18:24:08.968389 2016] [wsgi:error] [pid 9541:tid 140491991799552] Not Found: /axis-cgi/buffer/command.cgi
+[Sun Apr 24 18:24:10.306487 2016] [wsgi:error] [pid 9543:tid 140491991799552] Not Found: /b2-include/b2edit.showposts.php
+[Sun Apr 24 18:24:10.656416 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /bandwidth/index.cgi
+[Sun Apr 24 18:24:14.001428 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /cartcart.cgi
+[Sun Apr 24 18:24:17.349467 2016] [wsgi:error] [pid 9542:tid 140491991799552] Not Found: /main.cgi
+[Sun Apr 24 18:24:31.704742 2016] [wsgi:error] [pid 9541:tid 140491991799552] Not Found: /cgi-sys/helpdesk.cgi
+[Sun Apr 24 18:25:39.443399 2016] [wsgi:error] [pid 9543:tid 140491991799552] Not Found: /cgi-sys/entropysearch.cgi
+[Sun Apr 24 18:25:42.787498 2016] [wsgi:error] [pid 9540:tid 140491991799552] Not Found: /phppath/cgi_wrapper
+[Sun Apr 24 18:25:43.128375 2016] [wsgi:error] [pid 9539:tid 140491991799552] Not Found: /phppath/php
